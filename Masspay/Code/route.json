@@ -1,0 +1,191 @@
+{
+    "frontend": [{
+            "title": "Candidate Analyzer",
+            "description": "Candidate Analyzer",
+            "controller": "Finance\\Masspay\\Code\\Controllers\\MasspayController::generatemasspayAction",
+            "unique_name": "finance.masspay.generatemasspay",
+            "route": "finance/masspay/generatemasspay",
+            "permissions": "can_view, can_viewown",
+            "arguments": {},
+            "keywords": "finance, masspay",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+        }]
+    ,
+    "backend": [{
+            "title": "General Tasks",
+            "description": "General Tasks.",
+            "controller": "Finance\\Masspay\\Code\\Controllers\\Admin\\MasspayController::taskAction",
+            "unique_name": "admin.finance.masspay.task",
+            "route": "admin/finance/masspay/task",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": "",
+            "keywords": "masspay, task",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Masspay List",
+            "description": "Management of Masspay.",
+            "controller": "Finance\\Masspay\\Code\\Controllers\\Admin\\MasspayController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "admin.finance.masspay",
+            "route": "admin/finance/masspay",
+            "arguments": "",
+            "keywords": "masspay, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Add Masspay ",
+            "description": "Add Masspay  .",
+            "controller": "Finance\\Masspay\\Code\\Controllers\\Admin\\MasspayController::addAction",
+            "unique_name": "admin.finance.masspay.add",
+            "route": "admin/finance/masspay/add",
+            "permissions": "can_add",
+            "arguments": {},
+            "keywords": "masspay, add",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add"],
+                "ADMIN": ["can_add"]
+            }
+        }, {
+            "title": "Edit Masspay {{ item.name }}",
+            "description": "Edit Masspay {{ item.name }}.",
+            "controller": "Finance\\Masspay\\Code\\Controllers\\Admin\\MasspayController::editAction",
+            "unique_name": "admin.finance.masspay.edit",
+            "route": "admin/finance/masspay/edit/{id}",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "masspay, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Masspay Detail: {{ item.name }}",
+            "description": "Masspay Detail: {{ item.name }}",
+            "controller": "Finance\\Masspay\\Code\\Controllers\\Admin\\MasspayController::detailAction",
+            "unique_name": "admin.finance.masspay.detail",
+            "route": "admin/finance/masspay/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "masspay, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Masspay Delete: {{ item.name }}",
+            "description": "Masspay Delete: {{ item.name }}",
+            "controller": "Finance\\Masspay\\Code\\Controllers\\Admin\\MasspayController::deleteAction",
+            "unique_name": "admin.finance.masspay.delete",
+            "route": "admin/finance/masspay/delete/{id}",
+            "permissions": "can_delete, can_deleteown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "masspay, delete, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_delete", "can_deleteown"]
+            }
+        }, {
+            "title": "Masspay Save: {{ item.name }}",
+            "description": "Masspay Save: {{ item.name }}",
+            "controller": "Finance\\Masspay\\Code\\Controllers\\Admin\\MasspayController::saveAction",
+            "unique_name": "admin.finance.masspay.save",
+            "route": "admin/finance/masspay/save",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "masspay, save, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Masspay Complete Process: {{ item.name }}",
+            "description": "Masspay Complete Proces: {{ item.name }}",
+            "controller": "Finance\\Masspay\\Code\\Controllers\\Admin\\MasspayController::completeprocessAction",
+            "unique_name": "admin.finance.masspay.completeprocess",
+            "route": "admin/finance/masspay/completeprocess",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "masspay, completeprocess, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Generate Masspay: {{ item.name }}",
+            "description": "Generate Masspay: {{ item.name }}",
+            "controller": "Finance\\Masspay\\Code\\Controllers\\Admin\\MasspayController::generatemasspayAction",
+            "unique_name": "admin.finance.masspay.generatemasspay",
+            "route": "admin/finance/masspay/generatemasspay",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "masspay, generatemasspay, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Masspay Download File: {{ item.name }}",
+            "description": "Masspay Download File: {{ item.name }}",
+            "controller": "Finance\\Masspay\\Code\\Controllers\\Admin\\MasspayController::downloadfileAction",
+            "unique_name": "admin.finance.masspay.downloadfile",
+            "route": "admin/finance/masspay/downloadfile",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "masspay, downloadfile, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }]
+} 	

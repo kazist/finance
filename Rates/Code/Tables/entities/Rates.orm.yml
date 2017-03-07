@@ -1,0 +1,126 @@
+Finance\Rates\Code\Tables\Rates:
+  table: finance_rates
+  type: entity
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    title:
+      name: title
+      type: string
+      length: 255
+      nullable: false
+    short_name:
+      name: short_name
+      type: string
+      length: 255
+      nullable: false
+    value:
+      name: value
+      type: string
+      length: 255
+      nullable: false
+    rule:
+      name: rule
+      type: string
+      length: 255
+      nullable: true
+    type:
+      name: type
+      type: string
+      length: 255
+      nullable: true
+    effected_on:
+      name: effected_on
+      type: string
+      length: 255
+      nullable: true
+    amount_limit:
+      name: amount_limit
+      type: integer
+      length: 11
+      nullable: true
+    start_amount:
+      name: start_amount
+      type: integer
+      length: 11
+      nullable: true
+    end_amount:
+      name: end_amount
+      type: integer
+      length: 11
+      nullable: true
+    country_id:
+      name: country_id
+      type: integer
+      length: 11
+      nullable: true
+    file_limit:
+      name: file_limit
+      type: integer
+      length: 11
+      nullable: true
+    file_type:
+      name: file_type
+      type: string
+      length: 255
+      nullable: true
+    file_prefix:
+      name: file_prefix
+      type: text
+      nullable: true
+    file_structure:
+      name: file_structure
+      type: text
+      nullable: true
+    file_suffix:
+      name: file_suffix
+      type: text
+      nullable: true
+    is_visible:
+      name: is_visible
+      type: integer
+      length: 11
+      nullable: true
+    next_effected_on_date:
+      name: next_effected_on_date
+      type: datetime
+      nullable: true
+    published:
+      name: published
+      type: integer
+      length: 11
+      nullable: true
+    created_by:
+      name: created_by
+      type: integer
+      length: 11
+      nullable: false
+    date_created:
+      name: date_created
+      type: datetime
+      nullable: false
+    modified_by:
+      name: modified_by
+      type: integer
+      length: 11
+      nullable: false
+    date_modified:
+      name: date_modified
+      type: datetime
+      nullable: false
+  indexes:
+    country_id_index:
+      columns: [country_id]
+    created_by_index:
+      columns: [created_by]
+    modified_by_index:
+      columns: [modified_by]
+  lifecycleCallbacks:
+    prePersist:
+      - onPrePersist
+      - onPrePersistCallbacks
+    preUpdate:
+      - onPreUpdate
+      - onPreUpdateCallbacks

@@ -1,0 +1,15 @@
+[{
+        "tracking_id": "1",
+        "controller": "Finance\\Masspay\\Code\\Controllers\\MasspayController",
+        "function": "generatemasspayAction",
+        "unique_name": "finance.masspay.generatemasspay",
+        "minute": "59",
+        "hour": "23",
+        "day_of_month": "*",
+        "month": "*",
+        "day_of_week": "0,7",
+        "year": "*",
+        "next_run_time": "",
+        "published": 1
+    }]
+

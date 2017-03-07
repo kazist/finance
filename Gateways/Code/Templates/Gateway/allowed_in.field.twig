@@ -1,0 +1,21 @@
+{# empty Twig template #}
+
+{% import "form.macro.twig" as forms %}
+
+{% set item = getContext('item') %}
+
+{% set parameters = {'gateway_id':item.id} %}
+
+{% set countries_input = callFunction( "Setup.Components.World.Models.WorldModel", 'getCountriesInput' ) %}
+{% set countries_arr = callFunction( "Finance.Components.Gateway.Models.GatewayModel", 'getGatewayCountryAllowedInArr', parameters ) %}
+
+{{ forms.input('allowed_in.', 'select', countries_arr, 'Countries Allowed', null, null, 'multiple', null, countries_input) }}
+
+{% if countries_input|length > 0 and countries_arr|length > 0 %}
+    {% for country in countries_input %}
+        {% if  country.value in countries_arr %}
+            {{ country.text }}, 
+        {% endif %}
+    {% endfor %}
+{% endif %}
+

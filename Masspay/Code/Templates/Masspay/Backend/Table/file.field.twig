@@ -1,0 +1,8 @@
+{# empty Twig template #}
+
+{% set kazi_url = getContext('kazi_url') %}
+
+
+{% if item.file != ''  %}
+    <a class="btn btn-primary btn-flat btn-sm fa fa-arrow-circle-down" href="{{ friendly_url('app=finance&com=masspay&subset=masspay&task=downloadfile&controller=MasspayController&token=' ~ item.token~'&id='~item.id) }}">Download File</a>
+{% endif %}

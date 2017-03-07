@@ -1,0 +1,59 @@
+{
+    "title": "Finance",
+    "description": "Finance Advertisement",
+    "alias": "finance",
+    "icon": "fa-picture-o",
+    "home_link": "finance\/payments",
+    "is_core": "1",
+    "menulist": [{
+            "title": "Tokens",
+            "alias": "admin_finance_tokens",
+            "url": "admin/finance/tokens",
+            "children": []
+        }, {
+            "title": "Transactions",
+            "alias": "admin_finance_transactions",
+            "url": "admin/finance/transactions",
+            "children": []
+        }, {
+            "title": "Transfers",
+            "alias": "admin_finance_transfers",
+            "url": "admin/finance/transfers",
+            "children": []
+        }, {
+            "title": "Withdraws",
+            "alias": "admin_finance_withdraws",
+            "url": "admin/finance/withdraws",
+            "children": []
+        }, {
+            "title": "Masspay",
+            "alias": "admin_finance_masspay",
+            "url": "admin/finance/masspay",
+            "children": []
+        }, {
+            "title": "Rates",
+            "alias": "admin_finance_rates",
+            "url": "admin/finance/rates",
+            "children": [{
+                    "title": "Rates Files",
+                    "alias": "admin_finance_rates_files",
+                    "url": "admin/finance/rates/files",
+                    "children": []
+                }]
+        }, {
+            "title": "Coupons",
+            "alias": "admin_finance_coupons",
+            "url": "admin/finance/coupons",
+            "children": []
+        }, {
+            "title": "Gateways",
+            "alias": "admin_finance_gateways",
+            "url": "admin/finance/gateways",
+            "children": []
+        }, {
+            "title": "Payments",
+            "alias": "admin_finance_payments",
+            "url": "admin/finance/payments",
+            "children": []
+        }]
+}

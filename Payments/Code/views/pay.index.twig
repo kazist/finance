@@ -1,0 +1,132 @@
+{# empty Twig template #}
+
+{% import "form.macro.twig" as forms %}
+{% import _self as payment_macro %}
+
+{{ set_assets('applications/Finance/assets/css/payment.css') }}
+{{ set_assets('applications/Finance/assets/js/payment.js') }}
+{% set path_set = addTwigPath( "applications.Finance.Payments.Code.views.gateways") %}
+
+<h1>Payment Process </h1>
+
+<p>{{ payment.description }} </p>
+
+<div class="tab-v2">
+    <ul class="nav nav-tabs">
+        {% if gateways|length > 0 %}
+            {% for key,gateway in gateways %}
+                <li class="{% if not key %}active{% endif %}">
+
+                    <a class="payment-gateway-link" href="#{{ gateway.short_name }}" data-toggle="tab" aria-expanded="false" title="{{ gateway.long_name }}" gateway="{{ gateway.short_name }}">
+                        <label>
+                            <input class="payment-gateway-radio" type="checkbox" name="gateway" gateway="{{ gateway.short_name }}" {% if not key %}checked="checked"{% endif %}>
+
+                            {% if gateway.image %}
+                                <img src="{{ resized_image(gateway.image_file, null, 25, 'fit') }}">
+                            {% else %}
+                                {{ gateway.long_name }}
+                            {% endif %}
+                            {% if gateway.short_name == 'bonus' %}
+                                (${{ user.total }})
+                            {% endif %}
+                        </label>
+                    </a>
+                </li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+    <div class="tab-content">
+        {% if gateways|length > 0 %}
+            {% for key,gateway in gateways %}
+
+
+                {% set new_gateway =
+                    {
+                       'total_amount':(gateway.total_amount * converter.buying|default(1)),
+                       'currency':converter.code
+                    }
+                %}
+
+                {% set gateway = gateway|merge(new_gateway) %}
+
+
+                <div id="{{ gateway.short_name }}" class="tab-pane fade gateway-content {{ gateway.short_name }}-gateway-content {% if not key %}active in{% endif %}">
+
+                    <form class="form-horizontal" action="{{ generate_url('finance.payments.ajaxsavejson') }}" method="POST">
+
+                        <input class="payment_url" type="hidden" name="payment_url" value="{{ include(template_from_string(gateway.url|default(' '))) }}">
+
+                        {% set payment_form= payment_macro.form(gateway, payment, user, converter) %}
+                        {% set payment_invoice= payment_macro.invoice(gateway, payment, converter) %}
+
+                        {% if gateway.payment_instruction != '' %}
+
+                            <div class="gateway-instruction">
+                                {{ include(template_from_string(gateway.payment_instruction)) }}
+                            </div>
+
+                        {% endif %}
+
+                        {{ forms.input('_token' ) }} 
+
+                    </form>
+
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+</div>
+
+
+{% macro invoice(gateway, payment, converter) %}
+
+    <div class="table-responsive">
+        <table class="table table-condensed table-bordered">
+            <thead>
+                <tr class="bg-light-blue">
+                    <th>Description</th>
+                    <th class="text-right">Amount</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% if gateway.rates|length > 0  %}
+                    {% for rate in gateway.rates %}
+                        {% if rate.highlighted %}
+                            <tr>
+                                <th>{{ rate.title }}</th>
+                                <th class="text-right">{{ (rate.amount * converter.buying|default(1))|number_format(0) }}</th>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td>{{ rate.title }}</td>
+                                <td class="text-right">{{ (rate.amount* converter.buying|default(1))|number_format(0) }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+{% endmacro %}      
+
+{% macro form(gateway, payment, user, converter) %}
+
+    {% if gateway.parameters|length > 0 %}
+        {% for parameter in gateway.parameters %}
+            <input type="hidden" name="{{ parameter.name }}" value="{{ parameter.value }}" />
+        {% endfor %}
+    {% endif %}      
+
+    {% include "payment.gateway."~ gateway.short_name ~".twig" ignore missing %} 
+
+
+    <input class="payment_id" type="hidden" name="payment_id" value="{{ payment.id }}">
+    <input class="payment_params" type="hidden" name="payment_params" value="{{ gateway.json }}">
+    <input class="payment_type" type="hidden" name="payment_type" value="{{ gateway.short_name }}">
+
+{% endmacro %}
+
+

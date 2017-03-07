@@ -1,0 +1,31 @@
+<div class="table-responsive">
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th class="text-right">Amount</th>
+            </tr>
+            <tr>
+                <th colspan="3">Latest 5 Withdraw.</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% if withdraws|length > 0 %}
+                {% for withdraw in withdraws %}
+                    <tr>
+                        <td>{{ withdraw.description|default('-') }}</td>
+                        <td class="text-right">{{ withdraw.amount|number_format(2) }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            <tr>
+                <th colspan="3">Over All Total</th>
+            </tr> 
+            <tr>
+                <td>Total&nbsp;</td>
+                <td class="text-right">{{ total_withdraws|number_format(2) }}</td>
+            </tr> 
+        </tbody>
+    </table>
+</div>

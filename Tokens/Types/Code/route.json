@@ -1,0 +1,123 @@
+{
+    "backend": [{
+            "title": "General Tasks",
+            "description": "General Tasks.",
+            "controller": "Finance\\Tokens\\Types\\Code\\Controllers\\Admin\\TypesController::taskAction",
+            "unique_name": "admin.finance.tokens.types.task",
+            "route": "admin/finance/tokens/types/task",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": "",
+            "keywords": "types, task",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Type List",
+            "description": "Management of Types.",
+            "controller": "Finance\\Tokens\\Types\\Code\\Controllers\\Admin\\TypesController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "admin.finance.tokens.types",
+            "route": "admin/finance/tokens/types",
+            "arguments": "",
+            "keywords": "type, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Add Type ",
+            "description": "Add Type .",
+            "controller": "Finance\\Tokens\\Types\\Code\\Controllers\\Admin\\TypesController::addAction",
+            "unique_name": "admin.finance.tokens.types.add",
+            "route": "admin/finance/tokens/types/add",
+            "permissions": "can_add",
+            "arguments": {},
+            "keywords": "type, add",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add"],
+                "ADMIN": ["can_add"]
+            }
+        }, {
+            "title": "Edit Type {{ item.name }}",
+            "description": "Edit Type {{ item.name }}.",
+            "controller": "Finance\\Tokens\\Types\\Code\\Controllers\\Admin\\TypesController::editAction",
+            "unique_name": "admin.finance.tokens.types.edit",
+            "route": "admin/finance/tokens/types/edit/{id}",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "type, edit, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Type Detail: {{ item.name }}",
+            "description": "Type Detail: {{ item.name }}",
+            "controller": "Finance\\Tokens\\Types\\Code\\Controllers\\Admin\\TypesController::detailAction",
+            "unique_name": "admin.finance.tokens.types.detail",
+            "route": "admin/finance/tokens/types/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "type, detail, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Type Delete: {{ item.name }}",
+            "description": "Type Delete: {{ item.name }}",
+            "controller": "Finance\\Tokens\\Types\\Code\\Controllers\\Admin\\TypesController::deleteAction",
+            "unique_name": "admin.finance.tokens.types.delete",
+            "route": "admin/finance/tokens/types/delete/{id}",
+            "permissions": "can_delete, can_deleteown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "type, delete, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_delete", "can_deleteown"]
+            }
+        }, {
+            "title": "Type Save: {{ item.name }}",
+            "description": "Type Save: {{ item.name }}",
+            "controller": "Finance\\Tokens\\Types\\Code\\Controllers\\Admin\\TypesController::saveAction",
+            "unique_name": "admin.finance.tokens.types.save",
+            "route": "admin/finance/tokens/types/save",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "type, save, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }]
+} 	

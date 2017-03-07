@@ -1,0 +1,113 @@
+{
+    "frontend": [{
+            "title": "Evripay Return",
+            "description": "Evripay Return.",
+            "controller": "Finance\\Payments\\Evripay\\Code\\Controllers\\EvripayController::returnAction",
+            "unique_name": "finance.payments.evripay.return",
+            "route": "finance/payments/evripay/return",
+            "permissions": "can_view, can_viewown",
+            "arguments": "",
+            "keywords": "evripay, return",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+
+        }, {
+            "title": "Evripay Cancelled",
+            "description": "Evripay Cancelled",
+            "controller": "Finance\\Payments\\Evripay\\Code\\Controllers\\EvripayController::cancelAction",
+            "unique_name": "finance.payments.evripay.cancel",
+            "route": "finance/payments/evripay/cancel",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "evripay, cancel",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+        }, {
+            "title": "Evripay Notify",
+            "description": "Evripay Notify",
+            "controller": "Finance\\Payments\\Evripay\\Code\\Controllers\\EvripayController::notifyAction",
+            "unique_name": "finance.payments.evripay.notify",
+            "route": "finance/payments/evripay/notify",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "evripay, notify",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+        }],
+    "backend": [{
+            "title": "General Tasks",
+            "description": "General Tasks.",
+            "controller": "Finance\\Payments\\Evripay\\Code\\Controllers\\Admin\\EvripayController::taskAction",
+            "unique_name": "admin.finance.payments.evripay.task",
+            "route": "admin/finance/payments/evripay/task",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": "",
+            "keywords": "evripay, task",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Evripay List",
+            "description": "Management of Evripay.",
+            "controller": "Finance\\Payments\\Evripay\\Code\\Controllers\\Admin\\EvripayController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "admin.finance.payments.evripay",
+            "route": "admin/finance/payments/evripay",
+            "arguments": "",
+            "keywords": "cron, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Evripay Detail: {{ item.name }}",
+            "description": "Evripay Detail: {{ item.name }}",
+            "controller": "Finance\\Payments\\Evripay\\Code\\Controllers\\Admin\\EvripayController::detailAction",
+            "unique_name": "admin.finance.payments.evripay.detail",
+            "route": "admin/finance/payments/evripay/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "cron, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Evripay Delete: {{ item.name }}",
+            "description": "Evripay Delete: {{ item.name }}",
+            "controller": "Finance\\Payments\\Evripay\\Code\\Controllers\\Admin\\EvripayController::deleteAction",
+            "unique_name": "admin.finance.payments.evripay.delete",
+            "route": "admin/finance/payments/evripay/delete/{id}",
+            "permissions": "can_delete, can_deleteown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "cron, delete, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_delete", "can_deleteown"]
+            }
+        }]
+} 	

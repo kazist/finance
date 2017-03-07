@@ -1,0 +1,126 @@
+Finance\Payments\Code\Tables\Payments:
+  table: finance_payments
+  type: entity
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    gateway_id:
+      name: gateway_id
+      type: integer
+      length: 11
+      nullable: true
+    user_id:
+      name: user_id
+      type: integer
+      length: 11
+      nullable: false
+    subset_id:
+      name: subset_id
+      type: integer
+      length: 11
+      nullable: false
+    item_id:
+      name: item_id
+      type: integer
+      length: 11
+      nullable: true
+    receipt_no:
+      name: receipt_no
+      type: string
+      length: 255
+      nullable: true
+    code:
+      name: code
+      type: string
+      length: 255
+      nullable: true
+    type:
+      name: type
+      type: string
+      length: 255
+      nullable: true
+    description:
+      name: description
+      type: text
+      nullable: true
+    amount:
+      name: amount
+      type: string
+      length: 255
+      nullable: true
+    amount_required:
+      name: amount_required
+      type: integer
+      length: 11
+      nullable: true
+    amount_paid:
+      name: amount_paid
+      type: integer
+      length: 11
+      nullable: true
+    quantity:
+      name: quantity
+      type: string
+      length: 255
+      nullable: true
+    params:
+      name: params
+      type: text
+      nullable: true
+    deductions:
+      name: deductions
+      type: text
+      nullable: true
+    completed:
+      name: completed
+      type: integer
+      length: 11
+      nullable: true
+    successful:
+      name: successful
+      type: integer
+      length: 11
+      nullable: true
+    is_canceled:
+      name: is_canceled
+      type: integer
+      length: 11
+      nullable: true
+    created_by:
+      name: created_by
+      type: integer
+      length: 11
+      nullable: false
+    date_created:
+      name: date_created
+      type: datetime
+      nullable: false
+    modified_by:
+      name: modified_by
+      type: integer
+      length: 11
+      nullable: false
+    date_modified:
+      name: date_modified
+      type: datetime
+      nullable: false
+  indexes:
+    gateway_id_index:
+      columns: [gateway_id]
+    user_id_index:
+      columns: [user_id]
+    subset_id_index:
+      columns: [subset_id]
+    created_by_index:
+      columns: [created_by]
+    modified_by_index:
+      columns: [modified_by]
+  lifecycleCallbacks:
+    prePersist:
+      - onPrePersist
+      - onPrePersistCallbacks
+    preUpdate:
+      - onPreUpdate
+      - onPreUpdateCallbacks

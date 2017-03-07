@@ -1,0 +1,76 @@
+Finance\Tokens\Code\Tables\Tokens:
+  table: finance_tokens
+  type: entity
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    type_id:
+      name: type_id
+      type: integer
+      length: 11
+      nullable: true
+    token:
+      name: token
+      type: string
+      length: 255
+      nullable: false
+    used:
+      name: used
+      type: integer
+      length: 11
+      nullable: true
+    date_used:
+      name: date_used
+      type: datetime
+      nullable: true
+    used_by:
+      name: used_by
+      type: integer
+      length: 11
+      nullable: true
+    amount:
+      name: amount
+      type: integer
+      length: 11
+      nullable: false
+    unique_name:
+      name: unique_name
+      type: string
+      length: 255
+      nullable: false
+    created_by:
+      name: created_by
+      type: integer
+      length: 11
+      nullable: false
+    date_created:
+      name: date_created
+      type: datetime
+      nullable: false
+    modified_by:
+      name: modified_by
+      type: integer
+      length: 11
+      nullable: false
+    date_modified:
+      name: date_modified
+      type: datetime
+      nullable: false
+  indexes:
+    type_id_index:
+      columns: [type_id]
+    used_by_index:
+      columns: [used_by]
+    created_by_index:
+      columns: [created_by]
+    modified_by_index:
+      columns: [modified_by]
+  lifecycleCallbacks:
+    prePersist:
+      - onPrePersist
+      - onPrePersistCallbacks
+    preUpdate:
+      - onPreUpdate
+      - onPreUpdateCallbacks

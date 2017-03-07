@@ -1,0 +1,110 @@
+{
+    "FinanceCoupons": {
+        "namespace": "Finance\\Coupons",
+        "controller": "CouponsController"
+    },
+    "FinanceGateways": {
+        "namespace": "Finance\\Gateways",
+        "controller": "GatewaysController"
+    },
+    "FinanceGatewaysAllowedin": {
+        "namespace": "Finance\\Gateways\\Allowedin",
+        "controller": "AllowedinController"
+    },
+    "FinanceGatewaysDisallowedin": {
+        "namespace": "Finance\\Gateways\\Disallowedin",
+        "controller": "DisallowedinController"
+    },
+    "FinanceGatewaysParameters": {
+        "namespace": "Finance\\Gateways\\Parameters",
+        "controller": "ParametersController"
+    },
+    "FinanceGatewaysPaymentrates": {
+        "namespace": "Finance\\Gateways\\Paymentrates",
+        "controller": "PaymentratesController"
+    },
+    "FinanceGatewaysTransferrates": {
+        "namespace": "Finance\\Gateways\\Transferrates",
+        "controller": "TransferratesController"
+    },
+    "FinanceGatewaysWithdrawrates": {
+        "namespace": "Finance\\Gateways\\Withdrawrates",
+        "controller": "WithdrawratesController"
+    },
+    "FinanceMasspay": {
+        "namespace": "Finance\\Masspay",
+        "controller": "MasspayController"
+    },
+    "FinancePayments": {
+        "namespace": "Finance\\Payments",
+        "controller": "PaymentsController"
+    },
+    "FinancePaymentsEvripay": {
+        "namespace": "Finance\\Payments\\Evripay",
+        "controller": "EvripayController"
+    },
+    "FinancePaymentsIpay": {
+        "namespace": "Finance\\Payments\\Ipay",
+        "controller": "IpayController"
+    },
+    "FinancePaymentsPayza": {
+        "namespace": "Finance\\Payments\\Payza",
+        "controller": "PayzaController"
+    },
+    "FinancePaymentsSolidtrust": {
+        "namespace": "Finance\\Payments\\Solidtrust",
+        "controller": "SolidtrustController"
+    },
+    "FinanceRates": {
+        "namespace": "Finance\\Rates",
+        "controller": "RatesController"
+    },
+    "FinanceTokens": {
+        "namespace": "Finance\\Tokens",
+        "controller": "TokensController"
+    },
+    "FinanceTransactions": {
+        "namespace": "Finance\\Transactions",
+        "controller": "TransactionsController"
+    },
+    "FinanceTransfers": {
+        "namespace": "Finance\\Transfers",
+        "controller": "TransfersController"
+    },
+    "FinanceTransfersAllowedin": {
+        "namespace": "Finance\\Transfers\\Allowedin",
+        "controller": "AllowedinController"
+    },
+    "FinanceTransfersDisallowedin": {
+        "namespace": "Finance\\Transfers\\Disallowedin",
+        "controller": "DisallowedinController"
+    },
+    "FinanceWithdraws": {
+        "namespace": "Finance\\Withdraws",
+        "controller": "WithdrawsController"
+    },
+    "FinancePaymentsPaypal": {
+        "namespace": "Finance\\Payments\\Paypal",
+        "controller": "PaypalController"
+    },
+    "FinanceRatesFiles": {
+        "namespace": "Finance\\Rates\\Files",
+        "controller": "FilesController"
+    },
+    "FinanceTokensTypes": {
+        "namespace": "Finance\\Tokens\\Types",
+        "controller": "TypesController"
+    },
+    "FinancePaymentsBonus": {
+        "namespace": "Finance\\Payments\\Bonus",
+        "controller": "BonusController"
+    },
+    "FinancePaymentsTokens": {
+        "namespace": "Finance\\Payments\\Tokens",
+        "controller": "TokensController"
+    },
+    "FinancePaymentsPesapal": {
+        "namespace": "Finance\\Payments\\Pesapal",
+        "controller": "PesapalController"
+    }
+}

@@ -1,0 +1,6 @@
+{# empty Twig template #}
+{% if item.is_processed %}
+    Process Completed
+{% else %}
+    <a class="btn btn-success btn-flat btn-sm" href="{{ friendly_url('app=finance&com=masspay&subset=masspay&task=completeprocess&controller=MasspayController&token=' ~ item.token) }}"> Complete Process</a>
+{% endif %}

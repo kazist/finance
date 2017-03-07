@@ -1,0 +1,10 @@
+{
+    "name": "withdraw",
+    "title": "Withdraw Listing",
+    "explanation": "Withdraw Listing",
+    "description": "Withdraw Listing",
+    "version": 1,
+    "icon": "assets\/finance\/addons\/withdraw\/icon.png",
+    "extension": "addon",
+    "path": "finance\/addons\/withdraw\/"
+}

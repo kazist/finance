@@ -1,0 +1,183 @@
+{
+    "frontend": [{
+            "title": "Transaction List",
+            "description": "Management of Transactions.",
+            "controller": "Finance\\Transactions\\Code\\Controllers\\TransactionsController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "finance.transactions",
+            "route": "finance/transactions",
+            "arguments": "",
+            "keywords": "transaction, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"],
+                "MODERATOR": ["can_view", "can_viewown"],
+                "USER": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Transaction Detail: {{ item.name }}",
+            "description": "Transaction Detail: {{ item.name }}",
+            "controller": "Finance\\Transactions\\Code\\Controllers\\TransactionsController::detailAction",
+            "unique_name": "finance.transactions.detail",
+            "route": "finance/transactions/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transaction, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"],
+                "MODERATOR": ["can_view", "can_viewown"],
+                "USER": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Transaction Save: {{ item.name }}",
+            "description": "Transaction Save: {{ item.name }}",
+            "controller": "Finance\\Transactions\\Code\\Controllers\\TransactionsController::saveAction",
+            "unique_name": "admin.finance.transactions.save",
+            "route": "admin/finance/transactions/save",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transaction, save, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add"],
+                "ADMIN": ["can_add"],
+                "MODERATOR": ["can_add"],
+                "USER": ["can_add"]
+            }
+        }]
+    ,
+    "backend": [{
+            "title": "General Tasks",
+            "description": "General Tasks.",
+            "controller": "Finance\\Transactions\\Code\\Controllers\\Admin\\TransactionsController::taskAction",
+            "unique_name": "admin.finance.transactions.task",
+            "route": "admin/finance/transactions/task",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": "",
+            "keywords": "transactions, task",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Transaction List",
+            "description": "Management of Transactions.",
+            "controller": "Finance\\Transactions\\Code\\Controllers\\Admin\\TransactionsController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "admin.finance.transactions",
+            "route": "admin/finance/transactions",
+            "arguments": "",
+            "keywords": "transaction, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Add Transaction ",
+            "description": "Add Transaction .",
+            "controller": "Finance\\Transactions\\Code\\Controllers\\Admin\\TransactionsController::addAction",
+            "unique_name": "admin.finance.transactions.add",
+            "route": "admin/finance/transactions/add",
+            "permissions": "can_add",
+            "arguments": {},
+            "keywords": "transaction,add",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add"],
+                "ADMIN": ["can_add"]
+            }
+        }, {
+            "title": "Edit Transaction {{ item.name }}",
+            "description": "Edit Transaction {{ item.name }}.",
+            "controller": "Finance\\Transactions\\Code\\Controllers\\Admin\\TransactionsController::editAction",
+            "unique_name": "admin.finance.transactions.edit",
+            "route": "admin/finance/transactions/edit/{id}",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transaction, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Transaction Detail: {{ item.name }}",
+            "description": "Transaction Detail: {{ item.name }}",
+            "controller": "Finance\\Transactions\\Code\\Controllers\\Admin\\TransactionsController::detailAction",
+            "unique_name": "admin.finance.transactions.detail",
+            "route": "admin/finance/transactions/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transaction, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Transaction Delete: {{ item.name }}",
+            "description": "Transaction Delete: {{ item.name }}",
+            "controller": "Finance\\Transactions\\Code\\Controllers\\Admin\\TransactionsController::deleteAction",
+            "unique_name": "admin.finance.transactions.delete",
+            "route": "admin/finance/transactions/delete/{id}",
+            "permissions": "can_delete, can_deleteown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transaction, delete, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_delete", "can_deleteown"]
+            }
+        }, {
+            "title": "Transaction Save: {{ item.name }}",
+            "description": "Transaction Save: {{ item.name }}",
+            "controller": "Finance\\Transactions\\Code\\Controllers\\Admin\\TransactionsController::saveAction",
+            "unique_name": "admin.finance.transactions.save",
+            "route": "admin/finance/transactions/save",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transaction, save, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }]
+} 	

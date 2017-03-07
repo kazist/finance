@@ -1,0 +1,14 @@
+    
+<input type="hidden" id="Express_Order_Amount" name="Express_Order_Amount" value="{{ gateway.total_amount_in_cent }}">
+<input type="hidden" id="Express_Merchant_Reference" name="Express_Merchant_Reference" value="{{ payment.id }}">
+<input type="hidden" ID="Express_Website_Url" NAME="Express_Website_Url" VALUE="{{ generate_url('finance.payments.evripay.return', {'payment_id' : payment.id}) }}">
+<input type="hidden" ID="Express_Receipt_Email" NAME="Express_Receipt_Email" VALUE="{{ user.email }}">
+
+<center>
+    <a class="process-payment" href="#" title="Complete Payment">
+        <button class="btn btn-success btn-flat btn-sm" type="submit" name="Authorise">
+            <i class="fa fa-arrow-right"></i>
+            Complete Payment
+        </button>
+    </a>
+</center>

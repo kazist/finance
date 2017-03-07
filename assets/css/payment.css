@@ -1,0 +1,44 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 4, 2015, 5:18:38 PM
+    Author     : sbc
+*/
+
+.payment-gateways-list{
+    list-style: none;
+    padding:0;
+}
+
+.payment-gateways-list li{
+    margin-right: 10px;
+    float:left;
+}
+
+.payment-gateways-list a{
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.gateway-content{
+    border: solid 1px #f1f1f1;  
+    padding:5px;
+}
+
+.payment-gateways-content{
+    clear:both;
+}
+
+.payment-gateway-radio{
+    display: none;   
+}
+
+.payment-gateways-list .nav-tabs > li.active > a, 
+.payment-gateways-list .nav-tabs > li.active > a:hover, 
+.payment-gateways-list .nav-tabs > li.active > a:focus{
+    background: #B5D398 !important;
+}

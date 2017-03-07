@@ -1,0 +1,262 @@
+{
+    "frontend": [{
+            "title": "Withdraw List",
+            "description": "Management of Withdraws.",
+            "controller": "Finance\\Withdraws\\Code\\Controllers\\WithdrawsController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "finance.withdraws",
+            "route": "finance/withdraws",
+            "arguments": "",
+            "keywords": "withdraw, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_viewown"],
+                "ADMIN": ["can_viewown"],
+                "MODERATOR": ["can_viewown"],
+                "USER": ["can_viewown"]
+            }
+        }, {
+            "title": "Add Withdraw  ",
+            "description": "Add Withdraw .",
+            "controller": "Finance\\Withdraws\\Code\\Controllers\\WithdrawsController::addAction",
+            "unique_name": "finance.withdraws.add",
+            "route": "finance/withdraws/add",
+            "permissions": "can_add",
+            "arguments": {},
+            "keywords": "withdraw, add",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add"],
+                "ADMIN": ["can_add"],
+                "MODERATOR": ["can_add"],
+                "USER": ["can_add"]
+            }
+        }, {
+            "title": "Edit Withdraw {{ item.name }}",
+            "description": "Edit Withdraw {{ item.name }}.",
+            "controller": "Finance\\Withdraws\\Code\\Controllers\\WithdrawsController::editAction",
+            "unique_name": "finance.withdraws.edit",
+            "route": "finance/withdraws/edit/{id}",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "withdraw, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_writeown"],
+                "ADMIN": ["can_add", "can_writeown"],
+                "MODERATOR": ["can_add", "can_writeown"],
+                "USER": ["can_add", "can_writeown"]
+            }
+        }, {
+            "title": "Withdraw Detail: {{ item.name }}",
+            "description": "Withdraw Detail: {{ item.name }}",
+            "controller": "Finance\\Withdraws\\Code\\Controllers\\WithdrawsController::detailAction",
+            "unique_name": "finance.withdraws.detail",
+            "route": "finance/withdraws/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "withdraw, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_viewown"],
+                "ADMIN": ["can_viewown"],
+                "MODERATOR": ["can_viewown"],
+                "USER": ["can_viewown"]
+            }
+
+        }, {
+            "title": "Withdraw Save: {{ item.name }}",
+            "description": "Withdraw Save: {{ item.name }}",
+            "controller": "Finance\\Withdraws\\Code\\Controllers\\WithdrawsController::saveAction",
+            "unique_name": "finance.withdraws.save",
+            "route": "finance/withdraws/save",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "withdraw, save, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add"],
+                "ADMIN": ["can_add"],
+                "MODERATOR": ["can_add"],
+                "USER": ["can_add"]
+            }
+
+        }, {
+            "title": "Withdraw Invoice",
+            "description": "Withdraw Invoice",
+            "controller": "Finance\\Withdraws\\Code\\Controllers\\WithdrawsController::invoiceAction",
+            "unique_name": "finance.withdraws.invoice",
+            "route": "finance/withdraws/invoice",
+             "permissions": "can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "withdraw, invoice, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_viewown"],
+                "ADMIN": ["can_viewown"],
+                "MODERATOR": ["can_viewown"],
+                "USER": ["can_viewown"]
+            }
+
+
+        }]
+    ,
+    "backend": [{
+            "title": "General Tasks",
+            "description": "General Tasks.",
+            "controller": "Finance\\Withdraws\\Code\\Controllers\\Admin\\WithdrawsController::taskAction",
+            "unique_name": "admin.finance.withdraws.task",
+            "route": "admin/finance/withdraws/task",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": "",
+            "keywords": "withdraws, task",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Withdraw List",
+            "description": "Management of Withdraws.",
+            "controller": "Finance\\Withdraws\\Code\\Controllers\\Admin\\WithdrawsController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "admin.finance.withdraws",
+            "route": "admin/finance/withdraws",
+            "arguments": "",
+            "keywords": "withdraw, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Add Withdraw  ",
+            "description": "Add Withdraw  .",
+            "controller": "Finance\\Withdraws\\Code\\Controllers\\Admin\\WithdrawsController::addAction",
+            "unique_name": "admin.finance.withdraws.add",
+            "route": "admin/finance/withdraws/add",
+            "permissions": "can_add",
+            "arguments": {},
+            "keywords": "withdraw, add",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add"],
+                "ADMIN": ["can_add"]
+            }
+        }, {
+            "title": "Edit Withdraw {{ item.name }}",
+            "description": "Edit Withdraw {{ item.name }}.",
+            "controller": "Finance\\Withdraws\\Code\\Controllers\\Admin\\WithdrawsController::editAction",
+            "unique_name": "admin.finance.withdraws.edit",
+            "route": "admin/finance/withdraws/edit/{id}",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "withdraw, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Withdraw Detail: {{ item.name }}",
+            "description": "Withdraw Detail: {{ item.name }}",
+            "controller": "Finance\\Withdraws\\Code\\Controllers\\Admin\\WithdrawsController::detailAction",
+            "unique_name": "admin.finance.withdraws.detail",
+            "route": "admin/finance/withdraws/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "withdraw, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Withdraw Delete: {{ item.name }}",
+            "description": "Withdraw Delete: {{ item.name }}",
+            "controller": "Finance\\Withdraws\\Code\\Controllers\\Admin\\WithdrawsController::deleteAction",
+            "unique_name": "admin.finance.withdraws.delete",
+            "route": "admin/finance/withdraws/delete/{id}",
+            "permissions": "can_delete, can_deleteown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "withdraw, delete, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_delete", "can_deleteown"]
+            }
+        }, {
+            "title": "Withdraw Save: {{ item.name }}",
+            "description": "Withdraw Save: {{ item.name }}",
+            "controller": "Finance\\Withdraws\\Code\\Controllers\\Admin\\WithdrawsController::saveAction",
+            "unique_name": "admin.finance.withdraws.save",
+            "route": "admin/finance/withdraws/save",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "withdraw, save, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Reverse Withdraw",
+            "description": "Reverse Withdraw",
+            "controller": "Finance\\Withdraws\\Code\\Controllers\\Admin\\WithdrawsController::reversewithdrawAction",
+            "unique_name": "admin.finance.withdraws.reversewithdraw",
+            "route": "admin.finance/withdraws/reversewithdraw/{id}",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "business, reverse, withdraw, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_add", "can_delete", "can_writeown"]
+            }
+        }]
+} 	

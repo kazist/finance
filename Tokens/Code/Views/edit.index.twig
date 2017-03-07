@@ -1,0 +1,55 @@
+{% import "form.macro.twig" as forms %}
+
+
+{% set token_amounts =
+    {
+        0:{'value':5,'text':'5'},
+        1:{'value':10,'text':'10'},
+        2:{'value':20,'text':'20'},
+        3:{'value':40,'text':'40'}
+    }
+%}
+
+<form id="{{ main_form_id }}" class="form-horizontal" action="{{ generate_url(''~ kazi_url.app_name ~'.'~ kazi_url.com_name ~'.'~ kazi_url.subset_name ~'.save') }}" method="post" role="form"  enctype="multipart/form-data">
+
+    <div>
+        <div class="col-md-6">
+            {{ forms.input('total', 'text', null, 'Total')  }}
+            {{ forms.input('type_id', 'select', null, 'Amount', null, null, null, null, types)  }}
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+
+
+    {{ forms.input('_token' ) }} 
+
+</form>
+
+<style>
+
+
+    .inviter_detail_name{
+        font-weight: bold;
+    }
+
+    .location_id-group{
+        display: none;
+    }
+
+    .inviter_detail-group #date_arr{
+        width: 50px;
+        display: inline-block;
+    }
+    .inviter_detail-group #month_arr{
+        width: 100px;
+        display: inline-block;
+    }
+    .inviter_detail-group #year_arr{
+        width: 80px;
+        display: inline-block;
+    }
+</style>
+
+
+

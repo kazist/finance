@@ -1,0 +1,38 @@
+
+[{
+        "tracking_id": "1",
+        "short_name": "paypal",
+        "long_name": "Paypal",
+        "input_label": "Paypal",
+        "can_withdraw": "1",
+        "can_payment": "1",
+        "can_transfer": "1",
+        "payment_instruction": "You have Selected to Purchase Products\/Services. To complete your Payment click the PAYPAL button below and make a payment of {{ payment.amount }} USD.",
+        "transfer_instruction": "You have Selected to  Transfer. To complete your Transfer click the PAYPAL button below and make a Transfer of {{ payment.amount }} USD.",
+        "withdraw_instruction": "You have Selected to  Withdraw. To complete your Withdraw click the PAYPAL button below and make a Withdraw of {{ payment.amount }} USD.",
+        "withdraw_fields": "user.name,  withdraw.amount",
+        "withdraw_separator": "1",
+        "file_type": "csv",
+        "file_limit": "2000",
+        "url": "https://www.paypal.com/cgi-bin/webscr",
+        "published": "1"
+    }, {
+        "tracking_id": "2",
+        "short_name": "payza",
+        "long_name": "Payza",
+        "input_label": "Payza",
+        "can_withdraw": "1",
+        "can_payment": "1",
+        "can_transfer": "1",
+        "payment_instruction": "You have Selected to  Purchase Products\/Services. To complete your Payment click the PAYZA button below and make a payment of {{ payment.amount }} USD.",
+        "transfer_instruction": "You have Selected to  Transfer. To complete your Transfer click the PAYPAL button below and make a Transfer of {{ payment.amount }} USD.",
+        "withdraw_instruction": "You have Selected to  Withdraw. To complete your Withdraw click the PAYPAL button below and make a Withdraw of {{ payment.amount }} USD.",
+        "withdraw_fields": "user.name,  withdraw.amount",
+        "withdraw_separator": "1",
+        "file_type": "csv",
+        "file_limit": "2000",
+        "url": "https://secure.payza.com/checkout",
+        "published": "1"
+    }]
+
+

@@ -1,0 +1,20 @@
+{# empty Twig template #}
+
+{% import "form.macro.twig" as forms %}
+
+{% set item = getContext('item') %}
+{% set parameters = {'gateway_id':item.id} %}
+
+{% set rates_input = callFunction( "Finance.Components.Gateway.Models.GatewayModel", 'getChargeRatesInput' ) %}
+{% set rates_arr = callFunction( "Finance.Components.Gateway.Models.GatewayModel", 'getGatewayTransferRatesArr', parameters ) %}
+
+{{ forms.input('transfer_rates', 'checkbox', rates_arr, 'Rates', null, null, 'multiple', null, rates_input) }}
+
+
+{% if rates_input|length > 0 and rates_arr|length > 0 %}
+    {% for rate in rates_input %}
+        {% if  rate.value in rates_arr %}
+            {{ rate.text }}, 
+        {% endif %}
+    {% endfor %}
+{% endif %}

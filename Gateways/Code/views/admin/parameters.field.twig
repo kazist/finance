@@ -1,0 +1,126 @@
+{# empty Twig template #}
+
+{% import "form.macro.twig" as forms %}
+
+{% set item = get_context('item') %}
+{% set parameters = {'gateway_id':item.id} %}
+
+{% set html_type =
+    {
+        0:{'value':'hidden','text':'hidden'},
+        1:{'value':'text','text':'text'}
+    }
+%}
+
+{% set params = callFunction( "Finance.Gateways.Code.Models.GatewaysModel", 'getParameters' ,parameters ) %}
+
+<div class="table-responsive">
+    <table class="table table-condensed gateway-param">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Is Private</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if params|length > 0  %}
+                {% for param in params %}
+
+                    {% set param_is_private = param.is_private|default(0) %}
+
+                    <tr>
+                        <td>{{ forms.input('parameter.exist.name.'~param.id, 'text', param.name) }}</td>
+                        <td>{{ forms.input('parameter.exist.value.'~param.id, 'text', param.value) }}</td>
+                        <td>{{ forms.input('parameter.exist.is_private.'~param.id, 'yesno', param_is_private) }}</td>
+                        <td>
+                            <a class="btn btn-danger btn-xs btn-flat delete-parameter">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+
+        <tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <a class="add-new-param">
+                        <i class="fa fa-plus"></i>
+                        Add Parameter
+                    </a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div class="parament_default_is_private" style="display: none;">
+    <div class="btn-group select-button parameter_new_is_private" data-toggle="buttons" id="parameter_new_is_private">
+        <label class="btn btn-default btn-xs"> 
+            <div aria-disabled="false" aria-checked="false" style="position: relative;" class="iradio_minimal">
+                <input style="position: absolute; opacity: 0;" id="parameter_new_is_private_0" class="parameter_new_is_private_" name="form[parameter][new][is_private][]" value="1" type="radio">
+            </div>
+            Yes 
+        </label>
+        <label class="btn btn-primary btn-xs active"> 
+            <div aria-disabled="false" aria-checked="false" style="position: relative;" class="iradio_minimal checked">
+                <input style="position: absolute; opacity: 0;" id="parameter_new_is_private_1" class="parameter_new_is_private_" name="form[parameter][new][is_private][]" value="0" checked="" type="radio">
+            </div>
+            No 
+        </label>
+    </div>
+</div>
+
+
+<script>
+    jQuery(document).ready(function () {
+
+        jQuery('.delete-parameter').click(function () {
+            jQuery(this).closest('tr').remove();
+        });
+
+        jQuery('.add-new-param').click(function () {
+
+            var html = '';
+            var rand_number = Math.round((Math.random() * 1000));
+
+            html += '<tr>';
+            html += ' <td>';
+            html += '<input id="parameter_new_name_" class="form-control input-sm parameter_new_name_" name="form[parameter][new][name][]" type="text" value="">';
+            html += '</td>';
+            html += '<td>';
+            html += '<input id="parameter_new_value_" class="form-control input-sm parameter_new_value_" name="form[parameter][new][value][]" type="text" value="">';
+            html += '</td>';
+
+            html += '<td class="parameter_new_is_private_wrapper_' + rand_number + '">';
+            html += '</td>';
+
+            html += '<td>';
+            html += '<a class="btn btn-danger btn-xs btn-flat delete-parameter">';
+            html += '<i class="fa fa-times"></i>';
+            html += '</a>';
+            html += ' </td>';
+            html += '</tr>';
+
+            html = jQuery(html);
+
+
+            console.log(".parameter_new_is_private_wrapper_" + rand_number);
+
+            html.find('.delete-parameter').on('click', function () {
+                jQuery(this).closest('tr').remove();
+            });
+
+            jQuery('.gateway-param').append(html);
+
+            jQuery(".parament_default_is_private > div").clone(true).appendTo(".parameter_new_is_private_wrapper_" + rand_number);
+
+            console.log(jQuery(".parament_default_is_private"));
+        });
+
+    });
+</script>
+

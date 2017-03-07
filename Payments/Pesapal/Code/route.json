@@ -1,0 +1,113 @@
+{
+    "frontend": [{
+            "title": "Pesapal Return",
+            "description": "Pesapal Return.",
+            "controller": "Finance\\Payments\\Pesapal\\Code\\Controllers\\PesapalController::returnAction",
+            "unique_name": "finance.payments.pesapal.return",
+            "route": "finance/payments/pesapal/return",
+            "permissions": "can_view, can_viewown",
+            "arguments": "",
+            "keywords": "pesapal, return",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+
+        }, {
+            "title": "Pesapal Cancelled",
+            "description": "Pesapal Cancelled",
+            "controller": "Finance\\Payments\\Pesapal\\Code\\Controllers\\PesapalController::cancelAction",
+            "unique_name": "finance.payments.pesapal.cancel",
+            "route": "finance/payments/pesapal/cancel",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "pesapal,cancel",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+        }, {
+            "title": "Pesapal Notify",
+            "description": "Pesapal Notify",
+            "controller": "Finance\\Payments\\Pesapal\\Code\\Controllers\\PesapalController::notifyAction",
+            "unique_name": "finance.payments.pesapal.notify",
+            "route": "finance/payments/pesapal/notify",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "pesapal, notify",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+        }],
+    "backend": [{
+            "title": "General Tasks",
+            "description": "General Tasks.",
+            "controller": "Finance\\Payments\\Pesapal\\Code\\Controllers\\Admin\\PesapalController::taskAction",
+            "unique_name": "admin.finance.payments.pesapal.task",
+            "route": "admin/finance/payments/pesapal/task",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": "",
+            "keywords": "pesapal, task",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Pesapal List",
+            "description": "Management of Pesapal.",
+            "controller": "Finance\\Payments\\Pesapal\\Code\\Controllers\\Admin\\PesapalController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "admin.finance.payments.pesapal",
+            "route": "admin/finance/payments/pesapal",
+            "arguments": "",
+            "keywords": "cron, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Pesapal Detail: {{ item.name }}",
+            "description": "Pesapal Detail: {{ item.name }}",
+            "controller": "Finance\\Payments\\Pesapal\\Code\\Controllers\\Admin\\PesapalController::detailAction",
+            "unique_name": "admin.finance.payments.pesapal.detail",
+            "route": "admin/finance/payments/pesapal/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "cron, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Pesapal Delete: {{ item.name }}",
+            "description": "Pesapal Delete: {{ item.name }}",
+            "controller": "Finance\\Payments\\Pesapal\\Code\\Controllers\\Admin\\PesapalController::deleteAction",
+            "unique_name": "admin.finance.payments.pesapal.delete",
+            "route": "admin/finance/payments/pesapal/delete/{id}",
+            "permissions": "can_delete, can_deleteown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "cron, delete, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_delete", "can_deleteown"]
+            }
+        }]
+} 	

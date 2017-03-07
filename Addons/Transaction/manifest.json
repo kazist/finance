@@ -1,0 +1,10 @@
+{
+    "name": "transaction",
+    "title": "Transaction Listing",
+    "explanation": "Transaction Listing",
+    "description": "Transaction Listing",
+    "version": 1,
+    "icon": "assets\/finance\/addons\/transaction\/icon.png",
+    "extension": "addon",
+    "path": "finance\/addons\/transaction\/"
+}

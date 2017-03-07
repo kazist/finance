@@ -1,0 +1,9 @@
+{
+    "layout": [{
+            "tracking_id": "1",
+            "unique_name": "finance.rates.generatefile",
+            "subject": "{{ rate.title }} Rate File Generated Successfully",
+            "sms": "{{ rate.title }} Rate File Generated Successfully",
+            "body": "Hi,<br><br>Rate File was successfully generated.<br><br>Open backend to complete the payment once you send the money.<br><br> <b>Masspay Token:</b> {{ rate_file.token }}.<br><br>Thanks,"
+        }]
+}

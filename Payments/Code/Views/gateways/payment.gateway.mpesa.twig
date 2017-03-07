@@ -1,0 +1,65 @@
+
+{# empty Twig template #}
+{% import "form.macro.twig" as forms %}
+
+{% set web_base = constant('WEB_BASE') %}
+
+{% set tmparray = {'live': '1'} %}
+{% set tmparray = tmparray|merge({'mm': '1'}) %}
+{% set tmparray = tmparray|merge({'mb': '0'}) %}
+{% set tmparray = tmparray|merge({'dc': '0'}) %}
+{% set tmparray = tmparray|merge({'cc': '0'}) %}
+{% set tmparray = tmparray|merge({'mer': 'Social Biz Connect'}) %}
+{% set tmparray = tmparray|merge({'oid':  payment.id }) %}
+{% set tmparray = tmparray|merge({'inv':  payment.id }) %}
+{% set tmparray = tmparray|merge({'ttl': gateway.total_amount|round(0, 'ceil') }) %}
+{% set tmparray = tmparray|merge({'tel': user.phone|default('020232323')|replace({' ': "", '-': ""}) }) %}
+{% set tmparray = tmparray|merge({'eml': user.email }) %}
+{% set tmparray = tmparray|merge({'vid': 'sbc'}) %}
+{% set tmparray = tmparray|merge({'cur': 'kes'}) %}
+{% set tmparray = tmparray|merge({'p1': 'mpesa'}) %}
+{% set tmparray = tmparray|merge({'p2': ''}) %}
+{% set tmparray = tmparray|merge({'p3': ''}) %}
+{% set tmparray = tmparray|merge({'p4': ''}) %}
+{% set tmparray = tmparray|merge({'cbk':  web_base ~'/finance/payments/ipay/notify' }) %}
+{% set tmparray = tmparray|merge({'cst': '1'}) %}
+{% set tmparray = tmparray|merge({'crl': '0'}) %}
+
+
+{% set datastring = tmparray|join() %}
+{% set hashkey = 'HYGD4512Kjbbff7655mngdsbc' %}
+{% set hashid = hash_hmac('sha1', datastring, hashkey) %}
+
+{% set tmparray = tmparray|merge({'hsh': hashid}) %}
+{% set tmparray = tmparray|merge({'cbk': tmparray.cbk|url_encode }) %}
+
+{% set url = '' %}
+{% for key,param in tmparray %}
+    {% if key %}
+        {% set url =url ~ '&' ~ key ~ '=' ~ param %}
+    {% else %}
+        {% set url = url ~ key ~ '=' ~ param %}
+    {% endif %}
+{% endfor %}
+
+{% set url = url|join() %}
+
+{#
+<iframe src="https://www.ipayafrica.com/payments?{{ url }}" width="100%" height="800px"></iframe>
+
+#}
+
+<input class="payment_url" type="hidden" name="payment_url" value="https://www.ipayafrica.com/payments?{{ url }}" title='Pay with Mpesa'>
+
+<center>
+    <a class="process-payment" href="#" title="Complete Payment">
+        <button class="btn btn-success btn-flat btn-sm" type="submit" name="Complete Payment">
+            <i class="fa fa-arrow-right"></i>
+            Pay with Mpesa
+        </button>
+    </a>
+</center>
+
+
+
+

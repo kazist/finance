@@ -1,0 +1,69 @@
+Finance\Coupons\Code\Tables\Coupons:
+  table: finance_coupons
+  type: entity
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    coupon:
+      name: coupon
+      type: string
+      length: 255
+      nullable: false
+    used:
+      name: used
+      type: integer
+      length: 11
+      nullable: false
+    date_used:
+      name: date_used
+      type: datetime
+      nullable: false
+    used_by:
+      name: used_by
+      type: integer
+      length: 11
+      nullable: false
+    amount:
+      name: amount
+      type: integer
+      length: 11
+      nullable: false
+    used_once:
+      name: used_once
+      type: integer
+      length: 11
+      nullable: false
+    created_by:
+      name: created_by
+      type: integer
+      length: 11
+      nullable: false
+    date_created:
+      name: date_created
+      type: datetime
+      nullable: false
+    modified_by:
+      name: modified_by
+      type: integer
+      length: 11
+      nullable: false
+    date_modified:
+      name: date_modified
+      type: datetime
+      nullable: false
+  indexes:
+    used_by_index:
+      columns: [used_by]
+    created_by_index:
+      columns: [created_by]
+    modified_by_index:
+      columns: [modified_by]
+  lifecycleCallbacks:
+    prePersist:
+      - onPrePersist
+      - onPrePersistCallbacks
+    preUpdate:
+      - onPreUpdate
+      - onPreUpdateCallbacks

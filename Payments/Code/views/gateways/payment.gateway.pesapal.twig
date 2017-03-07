@@ -1,0 +1,38 @@
+<!-- Specify a Subscribe button. -->
+{% set params = {'gateway_id':gateway.id, 'parameter':'consumer_key'} %}
+{% set consumer_key = callFunction( "Finance.Payments.Code.Models.PaymentsModel", 'getGatewayParameter', params) %}
+
+{% set params = {'gateway_id':gateway.id, 'parameter':'consumer_secret'} %}
+{% set consumer_secret = callFunction( "Finance.Payments.Code.Models.PaymentsModel", 'getGatewayParameter', params) %}
+
+{% set params = {'gateway_id':gateway.id, 'parameter':'iframelink'} %}
+{% set iframelink = callFunction( "Finance.Payments.Code.Models.PaymentsModel", 'getGatewayParameter', params) %}
+
+{% set params = {'gateway_id':gateway.id, 'parameter':'type'} %}
+{% set type = callFunction( "Finance.Payments.Code.Models.PaymentsModel", 'getGatewayParameter', params) %}
+
+{% set parameters =
+   {
+        'parameters': {
+            'consumer_key':consumer_key,
+            'consumer_secret':consumer_secret,
+            'iframelink':iframelink,
+            'type':type,
+
+            'reference':payment.id,
+            'amount':gateway.total_amount,
+            'description':payment.description,
+
+            'first_name':user.name,
+            'last_name':user.name,
+            'email':user.email,
+            'callback_url': generate_url('finance.payments.pesapal.return', null, 0  )
+        }
+    }
+%}
+
+
+{% set pesapal = callFunction( "Finance.Payments.Pesapal.Code.Classes.Pesapal", 'getPesapalIframe', parameters) %}
+
+
+{{ pesapal|raw }}

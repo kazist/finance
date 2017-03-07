@@ -1,0 +1,53 @@
+Finance\Payments\Pesapal\Code\Tables\Pesapal:
+  table: finance_payments_pesapal
+  type: entity
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    pesapal_merchant_reference:
+      name: pesapal_merchant_reference
+      type: string
+      length: 255
+      nullable: true
+    pesapal_notification_type:
+      name: pesapal_notification_type
+      type: string
+      length: 255
+      nullable: true
+    pesapal_transaction_tracking_id:
+      name: pesapal_transaction_tracking_id
+      type: string
+      length: 255
+      nullable: true
+    pesapal_status:
+      name: pesapal_status
+      type: string
+      length: 255
+      nullable: true
+    created_by:
+      name: created_by
+      type: integer
+      length: 11
+      nullable: true
+    date_created:
+      name: date_created
+      type: datetime
+      nullable: true
+    modified_by:
+      name: modified_by
+      type: integer
+      length: 11
+      nullable: true
+    date_modified:
+      name: date_modified
+      type: datetime
+      nullable: true
+  lifecycleCallbacks:
+    prePersist:
+      - onPrePersist
+      - onPrePersistCallbacks
+    preUpdate:
+      - onPreUpdate
+      - onPreUpdateCallbacks

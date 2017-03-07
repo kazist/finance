@@ -1,0 +1,147 @@
+Finance\Gateways\Code\Tables\Gateways:
+  table: finance_gateways
+  type: entity
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    short_name:
+      name: short_name
+      type: string
+      length: 255
+      nullable: false
+    long_name:
+      name: long_name
+      type: string
+      length: 255
+      nullable: false
+    currency_id:
+      name: currency_id
+      type: integer
+      length: 11
+      nullable: false
+    image:
+      name: image
+      type: integer
+      length: 11
+      nullable: true
+    input_label:
+      name: input_label
+      type: string
+      length: 255
+      nullable: true
+    input_instruction:
+      name: input_instruction
+      type: text
+      nullable: false
+    can_withdraw:
+      name: can_withdraw
+      type: integer
+      length: 11
+      nullable: true
+    can_payment:
+      name: can_payment
+      type: integer
+      length: 11
+      nullable: true
+    can_transfer:
+      name: can_transfer
+      type: integer
+      length: 11
+      nullable: true
+    record_deposit:
+      name: record_deposit
+      type: integer
+      length: 11
+      nullable: true
+    params:
+      name: params
+      type: text
+      nullable: true
+    payment_instruction:
+      name: payment_instruction
+      type: text
+      nullable: true
+    transfer_instruction:
+      name: transfer_instruction
+      type: text
+      nullable: true
+    withdraw_instruction:
+      name: withdraw_instruction
+      type: text
+      nullable: true
+    withdraw_file_prefix:
+      name: withdraw_file_prefix
+      type: text
+      nullable: true
+    withdraw_file_structure:
+      name: withdraw_file_structure
+      type: text
+      nullable: true
+    withdraw_file_suffix:
+      name: withdraw_file_suffix
+      type: text
+      nullable: true
+    withdraw_limit:
+      name: withdraw_limit
+      type: integer
+      length: 11
+      nullable: true
+    file_type:
+      name: file_type
+      type: string
+      length: 255
+      nullable: true
+    file_limit:
+      name: file_limit
+      type: string
+      length: 255
+      nullable: true
+    published:
+      name: published
+      type: integer
+      length: 11
+      nullable: true
+    ordering:
+      name: ordering
+      type: integer
+      length: 11
+      nullable: true
+    url:
+      name: url
+      type: string
+      length: 255
+      nullable: true
+    created_by:
+      name: created_by
+      type: integer
+      length: 11
+      nullable: false
+    date_created:
+      name: date_created
+      type: datetime
+      nullable: false
+    modified_by:
+      name: modified_by
+      type: integer
+      length: 11
+      nullable: false
+    date_modified:
+      name: date_modified
+      type: datetime
+      nullable: false
+  indexes:
+    currency_id_index:
+      columns: [currency_id]
+    created_by_index:
+      columns: [created_by]
+    modified_by_index:
+      columns: [modified_by]
+  lifecycleCallbacks:
+    prePersist:
+      - onPrePersist
+      - onPrePersistCallbacks
+    preUpdate:
+      - onPreUpdate
+      - onPreUpdateCallbacks

@@ -1,0 +1,18 @@
+[{
+        "name": "finance_gateway_default_gateway",
+        "label": "Default Gateway",
+        "default": "",
+        "type": "select",
+        "source": {
+            "custom": [{
+                    "value": "1",
+                    "text": "Default Gateway"
+                }],
+            "table": {
+                "name": "#__finance_gateways",
+                "order": ["long_name ASC"],
+                "value": "id",
+                "text": "long_name"
+            }
+        }
+    }]

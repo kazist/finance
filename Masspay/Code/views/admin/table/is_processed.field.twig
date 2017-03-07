@@ -1,0 +1,6 @@
+{# empty Twig template #}
+{% if item.is_processed %}
+    Process Completed
+{% else %}
+    <a class="btn btn-success btn-flat btn-xs" href="{{ generate_url('admin.finance.masspay.completeprocess', {'token': item.token}) }}"> Complete Process</a>
+{% endif %}

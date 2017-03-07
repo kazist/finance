@@ -1,0 +1,133 @@
+Finance\Payments\Solidtrust\Code\Tables\Solidtrust:
+  table: finance_payments_solidtrust
+  type: entity
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    item_id:
+      name: item_id
+      type: string
+      length: 255
+      nullable: false
+    merchantAccount:
+      name: merchantAccount
+      type: string
+      length: 255
+      nullable: true
+    payerAccount:
+      name: payerAccount
+      type: string
+      length: 255
+      nullable: true
+    subscription:
+      name: subscription
+      type: string
+      length: 255
+      nullable: true
+    amount:
+      name: amount
+      type: string
+      length: 255
+      nullable: false
+    testmode:
+      name: testmode
+      type: string
+      length: 255
+      nullable: true
+    subscriber:
+      name: subscriber
+      type: string
+      length: 255
+      nullable: false
+    tr_id:
+      name: tr_id
+      type: string
+      length: 255
+      nullable: false
+    status:
+      name: status
+      type: string
+      length: 255
+      nullable: true
+    user1:
+      name: user1
+      type: string
+      length: 255
+      nullable: false
+    user2:
+      name: user2
+      type: string
+      length: 255
+      nullable: true
+    user3:
+      name: user3
+      type: string
+      length: 255
+      nullable: true
+    user4:
+      name: user4
+      type: string
+      length: 255
+      nullable: true
+    user5:
+      name: user5
+      type: string
+      length: 255
+      nullable: true
+    user6:
+      name: user6
+      type: string
+      length: 255
+      nullable: true
+    user7:
+      name: user7
+      type: string
+      length: 255
+      nullable: true
+    user8:
+      name: user8
+      type: string
+      length: 255
+      nullable: true
+    user9:
+      name: user9
+      type: string
+      length: 255
+      nullable: true
+    user10:
+      name: user10
+      type: string
+      length: 255
+      nullable: true
+    created_by:
+      name: created_by
+      type: integer
+      length: 11
+      nullable: false
+    date_created:
+      name: date_created
+      type: datetime
+      nullable: false
+    modified_by:
+      name: modified_by
+      type: integer
+      length: 11
+      nullable: false
+    date_modified:
+      name: date_modified
+      type: datetime
+      nullable: false
+  indexes:
+    created_by_index:
+      columns: [created_by]
+    modified_by_index:
+      columns: [modified_by]
+  lifecycleCallbacks:
+    prePersist:
+      - onPrePersist
+      - onPrePersistCallbacks
+    preUpdate:
+      - onPreUpdate
+      - onPreUpdateCallbacks

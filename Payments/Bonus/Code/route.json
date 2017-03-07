@@ -1,0 +1,113 @@
+{
+    "frontend": [{
+            "title": "Bonus Return",
+            "description": "Bonus Return.",
+            "controller": "Finance\\Payments\\Bonus\\Code\\Controllers\\BonusController::returnAction",
+            "unique_name": "finance.payments.bonus.return",
+            "route": "finance/payments/bonus/return",
+            "permissions": "can_view, can_viewown",
+            "arguments": "",
+            "keywords": "return, bonus",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+
+        }, {
+            "title": "Bonus Cancelled",
+            "description": "Bonus Cancelled",
+            "controller": "Finance\\Payments\\Bonus\\Code\\Controllers\\BonusController::cancelAction",
+            "unique_name": "finance.payments.bonus.cancel",
+            "route": "finance/payments/bonus/cancel",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "bonus, cancel",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+        }, {
+            "title": "Bonus Notify",
+            "description": "Bonus Notify",
+            "controller": "Finance\\Payments\\Bonus\\Code\\Controllers\\BonusController::notifyAction",
+            "unique_name": "finance.payments.bonus.notify",
+            "route": "finance/payments/bonus/notify",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "bonus, notify",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+        }],
+    "backend": [{
+            "title": "General Tasks",
+            "description": "General Tasks.",
+            "controller": "Finance\\Payments\\Bonus\\Code\\Controllers\\Admin\\BonusController::taskAction",
+            "unique_name": "admin.finance.payments.bonus.task",
+            "route": "admin/finance/payments/bonus/task",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": "",
+            "keywords": "bonus, task",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Bonus List",
+            "description": "Management of Bonus.",
+            "controller": "Finance\\Payments\\Bonus\\Code\\Controllers\\Admin\\BonusController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "admin.finance.payments.bonus",
+            "route": "admin/finance/payments/bonus",
+            "arguments": "",
+            "keywords": "cron, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Bonus Detail: {{ item.name }}",
+            "description": "Bonus Detail: {{ item.name }}",
+            "controller": "Finance\\Payments\\Bonus\\Code\\Controllers\\Admin\\BonusController::detailAction",
+            "unique_name": "admin.finance.payments.bonus.detail",
+            "route": "admin/finance/payments/bonus/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "cron, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Bonus Delete: {{ item.name }}",
+            "description": "Bonus Delete: {{ item.name }}",
+            "controller": "Finance\\Payments\\Bonus\\Code\\Controllers\\Admin\\BonusController::deleteAction",
+            "unique_name": "admin.finance.payments.bonus.delete",
+            "route": "admin/finance/payments/bonus/delete/{id}",
+            "permissions": "can_delete, can_deleteown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "cron, delete, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_delete", "can_deleteown"]
+            }
+        }]
+} 	

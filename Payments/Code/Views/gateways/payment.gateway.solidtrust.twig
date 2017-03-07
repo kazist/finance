@@ -1,0 +1,25 @@
+<input type="hidden" name="item_id" value="{{ payment.description }}" /> 
+<input type="hidden" name="currency" value="USD" /> 
+<input type="hidden" name="amount" value="{{ gateway.total_amount|round(1, 'ceil') }}" /> 
+<input type="hidden" name="return_url" value="{{ generate_url('finance.payments.solidtrust.return', null, 0) }}" />
+<input type="hidden" name="notify_url" value="{{ generate_url('finance.payments.solidtrust.notify', null, 0) }}" />
+<input type="hidden" name="cancel_url" value="{{ generate_url('finance.payments.solidtrust.cancel', null, 0) }}" />
+<input type="hidden" name="user1" value="{{user.name}}" />
+<input type="hidden" name="user2" value="{{user.email}}" />
+<input type="hidden" name="user3" value="{{ payment.id }}" />
+<input type="hidden" name="user4" value="{{user.id}}" />
+<input type="hidden" name="user5" value="{{ payment.description }}" />
+<input type="hidden" name="user6" value="" />
+<input type="hidden" name="user7" value="" />
+<input type="hidden" name="user7" value="" />
+<input type="hidden" name="user8" value="" />
+<input type="hidden" name="user10" value="" />
+
+<center>
+    <a class="process-payment"  href="#" title="Pay with Solidtrust">
+        <button type="submit">
+            <input type="image" src="https://www.solidtrustpay.com/assets/buttons/subscribe1.gif" border="0" alt="Submit" />
+        </button>
+    </a>
+</center>
+

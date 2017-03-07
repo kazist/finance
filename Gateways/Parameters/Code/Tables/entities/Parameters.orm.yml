@@ -1,0 +1,55 @@
+Finance\Gateways\Parameters\Code\Tables\Parameters:
+  table: finance_gateways_parameters
+  type: entity
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    gateway_id:
+      name: gateway_id
+      type: integer
+      length: 11
+      nullable: false
+    name:
+      name: name
+      type: string
+      length: 255
+      nullable: false
+    value:
+      name: value
+      type: text
+      nullable: false
+    is_private:
+      name: is_private
+      type: integer
+      length: 11
+      nullable: true
+    created_by:
+      name: created_by
+      type: integer
+      length: 11
+      nullable: false
+    date_created:
+      name: date_created
+      type: datetime
+      nullable: false
+    modified_by:
+      name: modified_by
+      type: integer
+      length: 11
+      nullable: false
+    date_modified:
+      name: date_modified
+      type: datetime
+      nullable: false
+  indexes:
+    gateway_id_index:
+      columns: [gateway_id]
+  lifecycleCallbacks:
+    prePersist:
+      - onPrePersist
+      - onPrePersistCallbacks
+    preUpdate:
+      - onPreUpdate
+      - onPreUpdateCallbacks

@@ -1,0 +1,11 @@
+{# empty Twig template #}
+
+{% set kazi_url = get_context('kazi_url') %}
+
+
+{% if item.file != ''  %}
+    <a class="btn btn-primary btn-flat btn-xs" href="{{ generate_url('admin.finance.masspay.downloadfile', {'id':item.id, 'token':item.token}) }}">
+        <i class="fa fa-arrow-circle-down"></i>
+        Download File
+    </a>
+{% endif %}

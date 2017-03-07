@@ -1,0 +1,34 @@
+
+<input type="hidden" name="payment_id" value="{{ payment.id }}>" />
+<input type="hidden" name="invoice" value="{{ payment.id }}" />
+<input type="hidden" name="total" value="{{ gateway.total_amount }}" />
+<input type="hidden" name="email" value="{{ user.email }}" />
+<input type="hidden" name="user_id" value="{{ user.id }}" />
+
+{% set converter_amount = converter.buying|default(1) %}
+
+{% if (user.total * converter_amount) >= gateway.total_amount  %}
+
+    <div class="text-center bg-green">
+        <h4>
+            Your Commission. <br>
+            Total Available Amount is {{ user.total * converter.buying|default(1) }}  {{ converter.code }}
+        </h4>
+    </div>
+
+    <center>
+        <a class="process-payment" href="#" title="Pay with Bonus">
+            <button class="btn btn-success btn-flat btn-sm" type="submit">
+                <i class="fa fa-arrow-right"></i>
+                Pay with Bonus
+            </button>
+        </a>
+    </center>
+{% else %}
+    <div class="text-center bg-red">
+        <h4>
+            You do not have Enough Commission. <br>
+            Total Available Amount is {{ user.total * converter.buying|default(1) }} {{ converter.code }}
+        </h4>
+    </div>
+{% endif %}

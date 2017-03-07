@@ -1,0 +1,10 @@
+{
+    "name": "finance",
+    "title": "Finance",
+    "icon": "icons\/finance.png",
+    "extension": "component",
+    "path": "finance\/",
+    "home_link": "finance\/payments",
+    "description": "Finance Information",
+    "version": 1
+}

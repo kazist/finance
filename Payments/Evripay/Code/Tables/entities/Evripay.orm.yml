@@ -1,0 +1,68 @@
+Finance\Payments\Evripay\Code\Tables\Evripay:
+  table: finance_payments_evripay
+  type: entity
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    payment_id:
+      name: payment_id
+      type: integer
+      length: 11
+      nullable: false
+    card_status:
+      name: card_status
+      type: string
+      length: 255
+      nullable: false
+    merchant_reference:
+      name: merchant_reference
+      type: string
+      length: 255
+      nullable: false
+    bank_reference:
+      name: bank_reference
+      type: string
+      length: 255
+      nullable: true
+    transaction_data:
+      name: transaction_data
+      type: text
+      nullable: true
+    description:
+      name: description
+      type: text
+      nullable: true
+    created_by:
+      name: created_by
+      type: integer
+      length: 11
+      nullable: false
+    date_created:
+      name: date_created
+      type: datetime
+      nullable: false
+    modified_by:
+      name: modified_by
+      type: integer
+      length: 11
+      nullable: false
+    date_modified:
+      name: date_modified
+      type: datetime
+      nullable: false
+  indexes:
+    payment_id_index:
+      columns: [payment_id]
+    created_by_index:
+      columns: [created_by]
+    modified_by_index:
+      columns: [modified_by]
+  lifecycleCallbacks:
+    prePersist:
+      - onPrePersist
+      - onPrePersistCallbacks
+    preUpdate:
+      - onPreUpdate
+      - onPreUpdateCallbacks

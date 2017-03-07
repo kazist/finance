@@ -1,0 +1,86 @@
+{% import "form.macro.twig" as forms %}
+
+{{ set_assets('applications/Finance/Components/assets/js/finance.js') }}
+
+{% set available_amount = subscriber.money_in - subscriber.money_out %}
+
+<h1> Withdrawal Fund</h1>
+<hr>
+
+{{  kazidump(subscriber) }}
+
+<form id="{{ main_form_id }}" class="form-horizontal" action="{{ friendly_url('app='~ kazi_url.app_name ~'&com='~ kazi_url.com_name ~'&subset='~ kazi_url.subset_name ~'&view=invoice') }}" method="post" role="form"  enctype="multipart/form-data">
+
+
+    <div>
+        <div class="col-md-9">
+
+            {{ forms.input('amount', 'text', null, 'Amount')  }}
+
+            {% if gateways|length > 1 %}
+                {{ forms.input('gateway_id', 'radio', null, 'Gateway', null, null, null, null, gateways)  }}
+            {% else %}
+                {{ forms.input('gateway_id', 'hidden', gateways.0.value) }}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="clr"></div>
+    {{ forms.input('id', 'hidden', subscriber.id, 'Id')  }}
+
+    {% if available_amount > minimum_amount %}
+
+        <div class="text-center bg-green">
+            Available Amount is {{ available_amount|number_format(2) }}.
+        </div>
+        <br>
+
+        <div class="text-center registration-buttons">
+            <input class="btn btn-success btn-sm" type="submit" name="submit" value="Withdraw Fund" />
+            <a class="btn btn-danger btn-sm" href="{{ friendly_url('app='~ kazi_url.app_name ~'&com='~ kazi_url.com_name ~'&subset='~ kazi_url.subset_name) }}">Cancel</a> 
+        </div>
+
+
+    {% else %}
+        <div class="text-center bg-red">
+            Available Amount  {{ available_amount|number_format(2) }} is less than {{ minimum_amount|number_format(2) }}.
+        </div>
+        <br>
+        <div class="text-center registration-buttons">
+            <a class="btn btn-danger btn-sm" href="{{ friendly_url('app='~ kazi_url.app_name ~'&com='~ kazi_url.com_name ~'&subset='~ kazi_url.subset_name) }}">Cancel</a> 
+        </div>
+    {% endif %}
+
+    {% include "form.hidden.twig" %}
+
+    {{ forms.input('_token' ) }} 
+
+</form>
+
+<style>
+
+
+    .inviter_detail_name{
+        font-weight: bold;
+    }
+
+    .location_id-group{
+        display: none;
+    }
+
+    .inviter_detail-group #date_arr{
+        width: 50px;
+        display: inline-block;
+    }
+    .inviter_detail-group #month_arr{
+        width: 100px;
+        display: inline-block;
+    }
+    .inviter_detail-group #year_arr{
+        width: 80px;
+        display: inline-block;
+    }
+</style>
+
+
+

@@ -1,0 +1,115 @@
+Finance\Transactions\Code\Tables\Transactions:
+  table: finance_transactions
+  type: entity
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    user_id:
+      name: user_id
+      type: integer
+      length: 11
+      nullable: false
+    item_id:
+      name: item_id
+      type: integer
+      length: 11
+      nullable: true
+    payment_id:
+      name: payment_id
+      type: integer
+      length: 11
+      nullable: true
+    source:
+      name: source
+      type: string
+      length: 255
+      nullable: true
+    rate_id:
+      name: rate_id
+      type: integer
+      length: 11
+      nullable: true
+    description:
+      name: description
+      type: text
+      nullable: false
+    credit:
+      name: credit
+      type: integer
+      length: 11
+      nullable: true
+    debit:
+      name: debit
+      type: integer
+      length: 11
+      nullable: true
+    type:
+      name: type
+      type: string
+      length: 255
+      nullable: true
+    level:
+      name: level
+      type: string
+      length: 255
+      nullable: true
+    is_capped:
+      name: is_capped
+      type: integer
+      length: 11
+      nullable: true
+    behalf_user_id:
+      name: behalf_user_id
+      type: integer
+      length: 11
+      nullable: true
+    token:
+      name: token
+      type: string
+      length: 255
+      nullable: true
+    is_processed:
+      name: is_processed
+      type: integer
+      length: 11
+      nullable: true
+    created_by:
+      name: created_by
+      type: integer
+      length: 11
+      nullable: false
+    date_created:
+      name: date_created
+      type: datetime
+      nullable: false
+    modified_by:
+      name: modified_by
+      type: integer
+      length: 11
+      nullable: false
+    date_modified:
+      name: date_modified
+      type: datetime
+      nullable: false
+  indexes:
+    user_id_index:
+      columns: [user_id]
+    payment_id_index:
+      columns: [payment_id]
+    rate_id_index:
+      columns: [rate_id]
+    behalf_user_id_index:
+      columns: [behalf_user_id]
+    created_by_index:
+      columns: [created_by]
+    modified_by_index:
+      columns: [modified_by]
+  lifecycleCallbacks:
+    prePersist:
+      - onPrePersist
+      - onPrePersistCallbacks
+    preUpdate:
+      - onPreUpdate
+      - onPreUpdateCallbacks

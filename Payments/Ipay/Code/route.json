@@ -1,0 +1,113 @@
+{
+    "frontend": [{
+            "title": "Ipay Return",
+            "description": "Ipay Return.",
+            "controller": "Finance\\Payments\\Ipay\\Code\\Controllers\\IpayController::returnAction",
+            "unique_name": "finance.payments.ipay.return",
+            "route": "finance/payments/ipay/return",
+            "permissions": "can_view, can_viewown",
+            "arguments": "",
+            "keywords": "ipay, return",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+
+        }, {
+            "title": "Ipay Cancelled",
+            "description": "Ipay Cancelled",
+            "controller": "Finance\\Payments\\Ipay\\Code\\Controllers\\IpayController::cancelAction",
+            "unique_name": "finance.payments.ipay.cancel",
+            "route": "finance/payments/ipay/cancel",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "ipay, cancel",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+        }, {
+            "title": "Ipay Notify",
+            "description": "Ipay Notify",
+            "controller": "Finance\\Payments\\Ipay\\Code\\Controllers\\IpayController::notifyAction",
+            "unique_name": "finance.payments.ipay.notify",
+            "route": "finance/payments/ipay/notify",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "ipay, notify",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0
+        }],
+    "backend": [{
+            "title": "General Tasks",
+            "description": "General Tasks.",
+            "controller": "Finance\\Payments\\Code\\Controllers\\Admin\\PaymentsController::taskAction",
+            "unique_name": "admin.finance.payments.task",
+            "route": "admin/finance/payments/task",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": "",
+            "keywords": "payments, task",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Ipay List",
+            "description": "Management of Ipay.",
+            "controller": "Finance\\Payments\\Ipay\\Code\\Controllers\\Admin\\IpayController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "admin.finance.payments.ipay",
+            "route": "admin/finance/payments/ipay",
+            "arguments": "",
+            "keywords": "ipay, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Ipay Detail: {{ item.name }}",
+            "description": "Ipay Detail: {{ item.name }}",
+            "controller": "Finance\\Payments\\Ipay\\Code\\Controllers\\Admin\\IpayController::detailAction",
+            "unique_name": "admin.finance.payments.ipay.detail",
+            "route": "admin/finance/payments/ipay/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "ipay, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Ipay Delete: {{ item.name }}",
+            "description": "Ipay Delete: {{ item.name }}",
+            "controller": "Finance\\Payments\\Ipay\\Code\\Controllers\\Admin\\IpayController::deleteAction",
+            "unique_name": "admin.finance.payments.ipay.delete",
+            "route": "admin/finance/payments/ipay/delete/{id}",
+            "permissions": "can_delete, can_deleteown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "ipay, delete, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_delete", "can_deleteown"]
+            }
+        }]
+} 	

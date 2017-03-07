@@ -1,0 +1,15 @@
+
+[{
+        "tracking_id": "1",
+        "title": "VAT",
+        "short_name": "vat",
+        "value": "16",
+        "rule": "+%",
+        "effected_on": "immediate",
+        "amount_limit": "0",
+        "is_visible": "1",
+        "published": "1"
+    }]
+
+
+

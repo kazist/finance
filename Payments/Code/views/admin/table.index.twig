@@ -1,0 +1,77 @@
+{# empty Twig template #}
+
+
+<form id="{{ main_form_id }}" action="{{ generate_url('admin.finance.payments') }}" method="post" >
+    <div class="table-responsive">
+        <table class="table table-condensed table-bordered">
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>User</th>
+                    <th align="left">Description</th>
+                    <th>Transaction Code</th>
+                    <th>Receipt No</th>
+                    <th> Method</th>
+                    <th>Cancelled</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead> 
+            <tbody>
+
+                {% if items|length>0 %}
+
+                    {% for item in items %}
+                        <tr>
+                            <td class="dropdown">
+
+                                <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="#" title="More Actions"> 
+                                    <span class="glyphicon glyphicon glyphicon-cog"></span>&nbsp; <span class="caret"></span> 
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        {% if not item.is_canceled %}
+                                            <a href="{{ generate_url('admin.finance.payments.reversepayment', {'id':item.id}) }}" title="Reverse Payment">Reverse Payment</a>
+                                        {% else %}
+                                            Reversed (done only once)
+                                        {% endif %}
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">
+                                        Id : {{ item.id }}
+                                    </li>
+                                </ul>
+                            </td>
+
+                            <td>{{ item.user_id_name }} ({{ item.user_id_username }})</td>
+                            <td>{{ item.description }}</td>
+                            <td>{{ item.code }}</td>
+                            <td>{{ item.receipt_no }}</td>
+                            <td>{{ item.gateway_id_short_name }}</td>
+                            <td class="text-center">
+                                {% if item.is_canceled %}
+                                    <label class="label label-success">Yes</label>
+                                {% else %}
+                                    <label class="label label-default">No</label>
+                                {% endif %} 
+                            </td>
+                            <td align="right">{{ item.amount ? item.amount|number_format(2) }}</td>
+                            <td>{{ item.date_created ? item.date_created|date('d M Y H:i:s') }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="clearfix"></div>
+
+    {% include "items.pagination.twig"%}
+
+    {% include "form.hidden.twig" %}
+
+    {{ forms.input('_token' ) }} 
+
+</form>

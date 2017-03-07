@@ -1,0 +1,83 @@
+{# empty Twig template #}
+
+{% import "form.macro.twig" as forms %}
+
+{% set search = document.search %}
+
+<h1 class="component-header"> Payments </h1>
+
+<form id="{{ main_form_id }}" action="{{ generate_url('finance.payments') }}" method="post" >
+
+    <div class="col-sm-12">
+        <div class="col-sm-3">
+            <b>Payment Method</b><br>
+            {{ forms.input(' search.gateway_id', 'select', search.gateway_id, null, null, null, null, null, gatewaysinput  ) }}
+        </div>
+        <div class="col-sm-4">
+            <b>Date Range</b><br>
+            {{ forms.input(' search.date_created.start', 'datetime', search.date_created.start ) }}
+            {{ forms.input(' search.date_created.end', 'datetime', search.date_created.end ) }}
+        </div>
+        <div class="col-sm-3">
+            <b></b><br>
+            <button class="btn btn-success btn-sm" type="submit" name="submit">Search</button>
+            <button class="btn btn-default btn-sm" type="submit" name="clear" value="clear">Clear</button>
+        </div>
+    </div>
+
+    <div class="clear-both"></div>
+    <br>
+
+    <div class="table-responsive">
+        <table class="table table-condensed table-bordered">
+            <thead>
+                <tr>
+                    <th align="left">Description</th>
+                    <th>Transaction Code</th>
+                    <th>Receipt No</th>
+                    <th>Payment Method</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                </tr>
+            </thead> 
+            <tbody>
+
+                {% if items|length>0 %}
+
+                    {% for item in items %}
+                        <tr >
+                            <td>{{ item.description }}</td>
+                            <td>{{ item.code }}</td>
+                            <td>{{ item.receipt_no }}</td>
+                            <td>{{ item.gateway_id_short_name }}</td>
+                            <td>{{ item.date_created ? item.date_created|date('d M Y H:i:s') }}</td>
+                            <td align="right">{{ item.amount ? item.amount|number_format(2) }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="clearfix"></div>
+
+    {% include "items.pagination.twig"%}
+
+    {% include "form.hidden.twig" %}
+
+    {{ forms.input('_token' ) }}
+
+</form>
+
+<style>
+    .search_date_created_start{
+        width: 45% !important;
+        float: left;
+    }
+
+    .search_date_created_end{
+        width: 45% !important;
+        float: right;
+    }
+</style>

@@ -1,0 +1,120 @@
+Finance\Payments\Ipay\Code\Tables\Ipay:
+  table: finance_payments_ipay
+  type: entity
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    payment_id:
+      name: payment_id
+      type: integer
+      length: 11
+      nullable: false
+    item_id:
+      name: item_id
+      type: string
+      length: 255
+      nullable: false
+    status:
+      name: status
+      type: string
+      length: 255
+      nullable: false
+    ivm:
+      name: ivm
+      type: string
+      length: 255
+      nullable: true
+    qwh:
+      name: qwh
+      type: string
+      length: 255
+      nullable: true
+    afd:
+      name: afd
+      type: string
+      length: 255
+      nullable: true
+    poi:
+      name: poi
+      type: string
+      length: 255
+      nullable: true
+    uyt:
+      name: uyt
+      type: string
+      length: 255
+      nullable: true
+    ifd:
+      name: ifd
+      type: string
+      length: 255
+      nullable: true
+    agd:
+      name: agd
+      type: string
+      length: 255
+      nullable: true
+    mc:
+      name: mc
+      type: string
+      length: 255
+      nullable: true
+    p1:
+      name: p1
+      type: string
+      length: 255
+      nullable: true
+    p2:
+      name: p2
+      type: string
+      length: 255
+      nullable: true
+    p3:
+      name: p3
+      type: string
+      length: 255
+      nullable: true
+    p4:
+      name: p4
+      type: string
+      length: 255
+      nullable: true
+    txncd:
+      name: txncd
+      type: string
+      length: 255
+      nullable: true
+    created_by:
+      name: created_by
+      type: integer
+      length: 11
+      nullable: false
+    date_created:
+      name: date_created
+      type: datetime
+      nullable: false
+    modified_by:
+      name: modified_by
+      type: integer
+      length: 11
+      nullable: false
+    date_modified:
+      name: date_modified
+      type: datetime
+      nullable: false
+  indexes:
+    payment_id_index:
+      columns: [payment_id]
+    created_by_index:
+      columns: [created_by]
+    modified_by_index:
+      columns: [modified_by]
+  lifecycleCallbacks:
+    prePersist:
+      - onPrePersist
+      - onPrePersistCallbacks
+    preUpdate:
+      - onPreUpdate
+      - onPreUpdateCallbacks

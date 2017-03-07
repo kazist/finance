@@ -1,0 +1,251 @@
+{
+    "frontend": [{
+            "title": "Payment List",
+            "description": "Management of Payments.",
+            "controller": "Finance\\Payments\\Code\\Controllers\\PaymentsController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "finance.payments",
+            "route": "finance/payments",
+            "arguments": "",
+            "keywords": "payment, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_viewown"],
+                "ADMIN": ["can_viewown"],
+                "MODERATOR": ["can_viewown"],
+                "USER": ["can_viewown"]
+            }
+        }, {
+            "title": "Payment Ajax",
+            "description": "Payment Ajax.",
+            "controller": "Finance\\Payments\\Code\\Controllers\\PaymentsController::ajaxsavejsonAction",
+            "unique_name": "finance.payments.ajaxsavejson",
+            "route": "finance/payments/ajaxsavejson",
+            "permissions": "can_view, can_viewown",
+            "arguments": "",
+            "keywords": "ajaxsavejson, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1
+        }, {
+            "title": "Payment Detail: {{ item.name }}",
+            "description": "Payment Detail: {{ item.name }}",
+            "controller": "Finance\\Payments\\Code\\Controllers\\PaymentsController::detailAction",
+            "unique_name": "finance.payments.detail",
+            "route": "finance/payments/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "payment, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_viewown"],
+                "ADMIN": ["can_viewown"],
+                "MODERATOR": ["can_viewown"],
+                "USER": ["can_viewown"]
+            }
+        }, {
+            "title": "Payment Save: {{ item.name }}",
+            "description": "Payment Save: {{ item.name }}",
+            "controller": "Finance\\Payments\\Code\\Controllers\\PaymentsController::saveAction",
+            "unique_name": "finance.payments.save",
+            "route": "finance/payments/save",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "payment, save, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add"],
+                "ADMIN": ["can_add"],
+                "MODERATOR": ["can_add"],
+                "USER": ["can_add"]
+            }
+        }, {
+            "title": "Payment pay",
+            "description": "Payment pay",
+            "controller": "Finance\\Payments\\Code\\Controllers\\PaymentsController::payAction",
+            "unique_name": "finance.payments.pay",
+            "route": "finance/payments/pay",
+            "permissions": "can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "payment, pay, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_viewown"],
+                "ADMIN": ["can_viewown"],
+                "MODERATOR": ["can_viewown"],
+                "USER": ["can_viewown"]
+            }
+        }, {
+            "title": " new payment",
+            "description": " new payment",
+            "controller": "Finance\\Payments\\Code\\Controllers\\PaymentsController::newpaymentAction",
+            "unique_name": "finance.payments.newpayment",
+            "route": "finance/payments/newpayment",
+            "permissions": "can_add",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "payment, pay, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add"],
+                "ADMIN": ["can_add"],
+                "MODERATOR": ["can_add"],
+                "USER": ["can_add"]
+            }
+        }]
+    ,
+    "backend": [{
+            "title": "General Tasks",
+            "description": "General Tasks.",
+            "controller": "Finance\\Payments\\Code\\Controllers\\Admin\\PaymentsController::taskAction",
+            "unique_name": "admin.finance.payments.task",
+            "route": "admin/finance/payments/task",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": "",
+            "keywords": "payments, task",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Payment List",
+            "description": "Management of Payments.",
+            "controller": "Finance\\Payments\\Code\\Controllers\\Admin\\PaymentsController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "admin.finance.payments",
+            "route": "admin/finance/payments",
+            "arguments": "",
+            "keywords": "payment, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Add Payment ",
+            "description": "Add Payment .",
+            "controller": "Finance\\Payments\\Code\\Controllers\\Admin\\PaymentsController::addAction",
+            "unique_name": "admin.finance.payments.add",
+            "route": "admin/finance/payments/add",
+            "permissions": "can_add",
+            "arguments": {},
+            "keywords": "payment,add",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add"],
+                "ADMIN": ["can_add"]
+            }
+        }, {
+            "title": "Edit Payment {{ item.name }}",
+            "description": "Edit Payment {{ item.name }}.",
+            "controller": "Finance\\Payments\\Code\\Controllers\\Admin\\PaymentsController::editAction",
+            "unique_name": "admin.finance.payments.edit",
+            "route": "admin/finance/payments/edit/{id}",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "payment, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add"]
+            }
+        }, {
+            "title": "Payment Detail: {{ item.name }}",
+            "description": "Payment Detail: {{ item.name }}",
+            "controller": "Finance\\Payments\\Code\\Controllers\\Admin\\PaymentsController::detailAction",
+            "unique_name": "admin.finance.payments.detail",
+            "route": "admin/finance/payments/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "payment, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Payment Delete: {{ item.name }}",
+            "description": "Payment Delete: {{ item.name }}",
+            "controller": "Finance\\Payments\\Code\\Controllers\\Admin\\PaymentsController::deleteAction",
+            "unique_name": "admin.finance.payments.delete",
+            "route": "admin/finance/payments/delete/{id}",
+            "permissions": "can_delete, can_deleteown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "payment, delete, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete"]
+            }
+        }, {
+            "title": "Payment Save: {{ item.name }}",
+            "description": "Payment Save: {{ item.name }}",
+            "controller": "Finance\\Payments\\Code\\Controllers\\Admin\\PaymentsController::saveAction",
+            "unique_name": "admin.finance.payments.save",
+            "route": "admin/finance/payments/save",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "payment, save, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add"]
+            }
+        }, {
+            "title": "Reverse Payment",
+            "description": "Reverse Payment",
+            "controller": "Finance\\Payments\\Code\\Controllers\\Admin\\PaymentsController::reversepaymentAction",
+            "unique_name": "admin.finance.payments.reversepayment",
+            "route": "admin.finance/payments/reversepayment/{id}",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "business, reverse, payment, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_add", "can_delete", "can_writeown"]
+            }
+        }]
+} 	
