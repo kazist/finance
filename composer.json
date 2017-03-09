@@ -1,0 +1,15 @@
+{
+    "name": "kazist/finance",
+    "description": "Kazist Finance Manager.",
+    "keywords": ["kazist", "finance manager"],
+    "homepage": "https://github.com/kazist/finance",
+    "license": "LGPL-3.0",
+    "authors": [
+        {
+            "name": "Dedan Irungu",
+            "email": "info@emshyinnovate.com",
+            "homepage": "http://emshyinnovate.com",
+            "role": "Founder & Developer"
+        }
+    ]
+}

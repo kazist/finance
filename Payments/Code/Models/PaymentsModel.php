@@ -720,7 +720,7 @@ class PaymentsModel extends BaseModel {
 
         $this->updateTaxationTransactions($payment);
         $this->savePaymentCodeStatus($payment_id, $code, true);
-        $factory->enqueueMessage('Payment Successful.', 'info');
+        $factory->enqueueMessage('Thank you. Your payment was Successful.', 'info');
 
         $this->container->get('dispatcher')->dispatch('payment.notification', new PaymentEvent($payment));
     }
@@ -732,7 +732,7 @@ class PaymentsModel extends BaseModel {
         $payment = $this->getPaymentById($payment_id);
         $this->updateTaxationTransactions($payment);
         $this->savePaymentCodeStatus($payment_id, $code, true);
-        $factory->enqueueMessage('Payment Successful.', 'info');
+        $factory->enqueueMessage('Thank you. Your payment was Successful.', 'info');
 
         $this->container->get('dispatcher')->dispatch('payment.successful', new PaymentEvent($payment));
     }
@@ -743,7 +743,7 @@ class PaymentsModel extends BaseModel {
 
         $payment = $this->getPaymentById($payment_id);
         $this->savePaymentCodeStatus($payment_id);
-        $factory->enqueueMessage('Payment Failed.', 'error');
+        $factory->enqueueMessage('Sorry. Your payment is Payment has Failed.', 'error');
 
         $this->container->get('dispatcher')->dispatch('payment.fail', new PaymentEvent($payment));
     }
@@ -754,7 +754,7 @@ class PaymentsModel extends BaseModel {
 
         $payment = $this->getPaymentById($payment_id);
         $this->savePaymentCodeStatus($payment_id);
-        $factory->enqueueMessage('Payment Invalid.', 'error');
+        $factory->enqueueMessage('Sorry. Your payment is Invalid.', 'error');
 
         $this->container->get('dispatcher')->dispatch('payment.invalid', new PaymentEvent($payment));
     }
@@ -765,7 +765,7 @@ class PaymentsModel extends BaseModel {
 
         $payment = $this->getPaymentById($payment_id);
         $this->savePaymentCodeStatus($payment_id);
-        $factory->enqueueMessage('Payment Pending.', 'error');
+        $factory->enqueueMessage('Thank you. Your payment is being processed.', 'error');
 
         $this->container->get('dispatcher')->dispatch('payment.pending', new PaymentEvent($payment));
     }
@@ -776,7 +776,7 @@ class PaymentsModel extends BaseModel {
 
         $payment = $this->getPaymentById($payment_id);
         $this->savePaymentCodeStatus($payment_id);
-        $factory->enqueueMessage('Payment Completed.', 'info');
+        $factory->enqueueMessage('Thank you. Your payment is Completed.', 'info');
 
         $this->container->get('dispatcher')->dispatch('payment.complete', new PaymentEvent($payment));
     }
@@ -788,7 +788,7 @@ class PaymentsModel extends BaseModel {
 
         $payment = $this->getPayment($payment_id);
         $this->savePaymentCodeStatus($payment_id);
-        $factory->enqueueMessage('Payment Cancelled.', 'error');
+        $factory->enqueueMessage('Sorry. Your payment was Cancelled.', 'error');
 
         $callback->dispatch('onPaymentCancel', 'finance.payment.cancel', $payment);
     }
