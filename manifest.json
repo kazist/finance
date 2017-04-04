@@ -1,9 +1,9 @@
 {
-    "name": "finance",
+    "name": "kazist/finance",
     "title": "Finance",
     "icon": "icons\/finance.png",
     "extension": "component",
-    "path": "finance\/",
+    "path": "applications/Finance/",
     "home_link": "finance\/payments",
     "description": "Finance Information",
     "version": 1
