@@ -61,7 +61,7 @@ class WithdrawsController extends BaseController {
         $subscriber = $this->model->getSubscriber();
         $gateways = $this->model->getWithdrawGateways($subscriber);
         $gateway = $this->model->getWithdrawGateway($subscriber);
-
+//print_r($minimum_amount); exit;
         if ($subscriber->subscription->website == '') {
             $factory->enqueueMessage('Hosting is mandatory for all upgraded accounts. Please set up you hosting Domain Details.', 'error');
             return $this->redirectToRoute('subscriptions.subscriptions.hosting');

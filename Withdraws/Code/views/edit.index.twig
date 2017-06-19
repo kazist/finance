@@ -10,6 +10,9 @@
 <form id="{{ main_form_id }}" class="form-horizontal" action="{{ generate_url('finance.withdraws.invoice') }}" method="post" role="form"  enctype="multipart/form-data">
 
 
+    <div class="alert alert-danger">
+        Minimum widthdraw is <b>${{ minimum_amount }}</b>. For Withdrawal To Work Ensure You Leave <b>$2</b> Balance.
+    </div>
     <div>
         <div class="col-md-9">
 
