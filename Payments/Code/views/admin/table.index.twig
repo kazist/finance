@@ -1,7 +1,8 @@
 {# empty Twig template #}
-
+{% import "form.macro.twig" as forms %}
 
 <form id="{{ main_form_id }}" action="{{ generate_url('admin.finance.payments') }}" method="post" >
+   
     <div class="table-responsive">
         <table class="table table-condensed table-bordered">
             <thead>
