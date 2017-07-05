@@ -33,6 +33,7 @@ class TransactionsController extends BaseController {
         if ($view == 'commission') {
             $this->data_arr['params'] = array('view' => 'commission');
         }
+      
         return parent::indexAction($offset, $limit);
     }
 

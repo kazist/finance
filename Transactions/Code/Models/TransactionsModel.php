@@ -70,16 +70,13 @@ class TransactionsModel extends BaseModel {
         $query->addSelect('ft_uu.username AS trans_username, ft_uu.name AS trans_name, ft_uu.email AS trans_email');
         $query->addSelect('ft_own.username AS own_username, ft_own.name AS own_name, ft_own.email AS own_email');
 
-
-
-
         return $query;
     }
 
     public function save($form_data = '') {
 
         $form_data = $this->request->get('form');
-        
+
         $form_data['behalf_user_id'] = $form_data['user_id'];
         $form_data['type'] = 'admin';
         if ($form_data['amount'] > 0) {
