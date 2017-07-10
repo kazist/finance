@@ -2,58 +2,68 @@
     "title": "Finance",
     "description": "Finance Advertisement",
     "alias": "finance",
-    "icon": "fa-picture-o",
+    "icon": "fa fa-money",
     "home_link": "finance\/payments",
     "is_core": "1",
     "menulist": [{
             "title": "Tokens",
             "alias": "admin_finance_tokens",
             "url": "admin/finance/tokens",
+            "icon": "fa fa-code",
             "children": []
         }, {
             "title": "Transactions",
             "alias": "admin_finance_transactions",
             "url": "admin/finance/transactions",
+            "icon": "fa fa-money",
             "children": []
         }, {
             "title": "Transfers",
             "alias": "admin_finance_transfers",
             "url": "admin/finance/transfers",
+            "icon": "fa fa-paper-plane",
             "children": []
         }, {
             "title": "Withdraws",
             "alias": "admin_finance_withdraws",
             "url": "admin/finance/withdraws",
+            "icon": "fa fa-hand-o-down",
             "children": []
         }, {
             "title": "Masspay",
             "alias": "admin_finance_masspay",
             "url": "admin/finance/masspay",
+            "icon": "fa fa-telegram",
             "children": []
         }, {
             "title": "Rates",
             "alias": "admin_finance_rates",
             "url": "admin/finance/rates",
+            "icon": "fa fa-tasks",
             "children": [{
                     "title": "Rates Files",
                     "alias": "admin_finance_rates_files",
                     "url": "admin/finance/rates/files",
+                    "icon": "fa fa-file",
                     "children": []
                 }]
         }, {
             "title": "Coupons",
             "alias": "admin_finance_coupons",
             "url": "admin/finance/coupons",
+            "icon": "fa fa-credit-card",
             "children": []
         }, {
             "title": "Gateways",
             "alias": "admin_finance_gateways",
             "url": "admin/finance/gateways",
+            "icon": "fa fa-road",
             "children": []
         }, {
             "title": "Payments",
             "alias": "admin_finance_payments",
             "url": "admin/finance/payments",
+            "icon": "fa fa-shopping-cart",
             "children": []
         }]
 }
