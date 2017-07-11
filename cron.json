@@ -1,5 +1,18 @@
 [{
         "tracking_id": "1",
+        "controller": "Finance\\Rates\\Code\\Controllers\\RatesController",
+        "function": "crongeneratefileAction",
+        "unique_name": "finance.rates.crongeneratefile",
+        "minute": "0",
+        "hour": "*",
+        "day_of_month": "*",
+        "month": "*",
+        "day_of_week": "*",
+        "year": "*",
+        "next_run_time": "",
+        "published": 1
+    }, {
+        "tracking_id": "2",
         "controller": "Finance\\Masspay\\Code\\Controllers\\MasspayController",
         "function": "generatemasspayAction",
         "unique_name": "finance.masspay.generatemasspay",
