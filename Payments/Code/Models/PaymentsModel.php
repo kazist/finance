@@ -71,7 +71,7 @@ class PaymentsModel extends BaseModel {
         $query->andWhere('fp.amount>0');
 
         $query->andWhere('fp.completed=1');
-
+        
         return $query;
     }
 

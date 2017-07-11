@@ -1,6 +1,7 @@
 <!-- Specify a Subscribe button. -->
 <input type='hidden' name='item_name' value='{{ payment.description }}'>
 <input type='hidden' name='item_number' value='{{ payment.id }}'>
+<input type="hidden" name="currency_code" value="{{ gateway.currency }}">
 <input type='hidden' name='amount' value='{{gateway.total_amount}}'>
 <input type="hidden" name="a3" value="{{gateway.total_amount}}">
 <input type='hidden' name='cancel_return' value='{{ generate_url('finance.payments.paypal.cancel') }}'>

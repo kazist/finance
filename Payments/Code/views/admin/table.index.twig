@@ -13,6 +13,7 @@
                     <th>Transaction Code</th>
                     <th>Receipt No</th>
                     <th> Method</th>
+                    <th>Status</th>
                     <th>Cancelled</th>
                     <th>Amount</th>
                     <th>Date</th>
@@ -55,6 +56,13 @@
                                     <label class="label label-success">Yes</label>
                                 {% else %}
                                     <label class="label label-default">No</label>
+                                {% endif %} 
+                            </td>
+                            <td class="text-center">
+                                {% if item.successful %}
+                                    <label class="label label-success">Successful</label>
+                                {% else %}
+                                    <label class="label label-default">Failed</label>
                                 {% endif %} 
                             </td>
                             <td align="right">{{ item.amount ? item.amount|number_format(2) }}</td>
