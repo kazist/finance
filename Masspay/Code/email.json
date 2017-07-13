@@ -3,7 +3,7 @@
             "tracking_id": "1",
             "unique_name": "finance.masspay.generatefile",
             "subject": "{{ gateway.long_name }} Masspay File Generated Successfully",
-            "sms": "{{ gateway.long_name }} Masspay File Generated Successfully",
+            "short_body": "{{ gateway.long_name }} Masspay File Generated Successfully",
             "body": "Hi,<br><br>Masspay File was successfully generated.<br><br>Open backend to complete the payment once you send the money.<br><br> <b>Masspay Token:</b> {{ masspay.token }}.<br><br>Thanks,"
         }]
 }
