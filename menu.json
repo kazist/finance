@@ -4,6 +4,7 @@
     "alias": "finance",
     "icon": "fa fa-money",
     "home_link": "finance\/payments",
+    "path": "applications/Finance",
     "is_core": "1",
     "menulist": [{
             "title": "Tokens",
